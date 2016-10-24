@@ -23,15 +23,15 @@ using System.Collections;
 
 public class MovePlayer : MonoBehaviour
 {
-	private Vector3 mousePosition;
+	
 	private Transform myTransform;
 	// this transform
-	private Vector3 destinationPosition;
+	private Vector3 destino;
 	// The destination Point
-	private float destinationDistance;
+	private float distanciaDestino;
 	// The distance between myTransform and destinationPosition
-	private float moveSpeed;
-	public float defaultSpeed;
+	public float velocidade;
+	//public float defaultSpeed;
 	// The Speed the character will move
 	public bool andando;
 	public Animator animator;
@@ -40,44 +40,39 @@ public class MovePlayer : MonoBehaviour
 	void Start ()
 	{
 		myTransform = transform;						// sets myTransform to this GameObject.transform
-		mousePosition = myTransform.position;			// prevents myTransform reset
+		destino = myTransform.position;				// prevents myTransform reset
 		//animator = myTransform.GetComponentsInChildren<Animator> ();
 		//print ("Estou em: x: " + myTransform.position.x + " - y: " + myTransform.position.y + " - z: " + myTransform.position.z);
-		moveSpeed = defaultSpeed;
+		//velocidade = defaultSpeed;
 		//view = myTransform.GetComponentsInChildren <SpriteRenderer> ();
 	}
 
-	void Update ()
-	{
-		animator.SetBool ("andando", false);
-		destinationDistance = Vector3.Distance (mousePosition, myTransform.position);
+	public void MoverAte(Vector3 destino){
+		this.destino = destino;
+	}
 
-		// Moves the Player if the Left Mouse Button was clicked
-		if (Input.GetMouseButtonDown (0) && GUIUtility.hotControl == 0) {
-			mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);	//recebe a posição do clique do mouse
-			mousePosition.z = 0;
-			if (mousePosition.x < myTransform.position.x) {				
+	void Update ()
+	{		
+		print ("Destino jogador: "+destino.ToString());
+		print ("Jogador: "+myTransform.position.ToString());
+		print ("Distancia: "+distanciaDestino.ToString());
+
+		if (myTransform.position != destino) {
+			animator.SetBool ("andando", false);
+			distanciaDestino = Vector3.Distance (destino, myTransform.position);
+
+			if (destino.x < myTransform.position.x) {				
 				view.flipX = true;
 			} else {
 				view.flipX = false;
 			}
 
-			if (mousePosition.y >= -0.4f) {
-				mousePosition.y = -0.4f;
+			if (distanciaDestino > .1) {
+				myTransform.position = Vector3.MoveTowards (myTransform.position, destino, velocidade * Time.deltaTime);
+				animator.SetBool ("andando", true);
+			} else {
+				animator.SetBool ("andando", false);
 			}
-
-		}
-
-		if (destinationDistance > .1) {
-			myTransform.position = Vector3.MoveTowards (myTransform.position, mousePosition, moveSpeed * Time.deltaTime);
-			animator.SetBool ("andando", true);
-		} else {
-			animator.SetBool ("andando", false);
-		}
-
-		// To prevent code from running if not needed
-		//if (destinationDistance > .5f) 
-		//myTransform.position = Vector3.MoveTowards (myTransform.position, destinationPosition, moveSpeed * Time.deltaTime);
-		
+		}	
 	}
 }

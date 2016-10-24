@@ -18,16 +18,4 @@ public class Checklist : MonoBehaviour
 			panelCheckList.SetActive (ativado);
 		}
 	}
-
-	public void MudarTexto ()
-	{
-		string msg = "Check-List: " +
-		             "\n\n1.-------------------------------" +
-		             "\n\n2.-------------------------------" +
-		             "\n\n3.NBR 12693, Item 5.3" +
-		             "\n\n4.-------------------------------" +
-		             "\n\n5.-------------------------------";
-		lblChecklist.text = msg;
-
-	}
 }
