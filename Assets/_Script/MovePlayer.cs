@@ -21,9 +21,19 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(PolyNavAgent))]
 public class MovePlayer : MonoBehaviour
 {
-	
+	private PolyNavAgent _agent;
+
+	public PolyNavAgent agent {
+		get {
+			if (!_agent)
+				_agent = GetComponent<PolyNavAgent> ();
+			return _agent;			
+		}
+	}
+
 	private Transform myTransform;
 	// this transform
 	private Vector3 destino;
@@ -31,7 +41,6 @@ public class MovePlayer : MonoBehaviour
 	private float distanciaDestino;
 	// The distance between myTransform and destinationPosition
 	public float velocidade;
-	//public float defaultSpeed;
 	// The Speed the character will move
 	public bool andando;
 	public Animator animator;
@@ -41,25 +50,28 @@ public class MovePlayer : MonoBehaviour
 	{
 		myTransform = transform;						// sets myTransform to this GameObject.transform
 		destino = myTransform.position;				// prevents myTransform reset
-		//animator = myTransform.GetComponentsInChildren<Animator> ();
-		//print ("Estou em: x: " + myTransform.position.x + " - y: " + myTransform.position.y + " - z: " + myTransform.position.z);
-		//velocidade = defaultSpeed;
-		//view = myTransform.GetComponentsInChildren <SpriteRenderer> ();
 	}
 
-	public void MoverAte(Vector3 destino){
+	public void MoverAte (Vector3 destino)
+	{
 		this.destino = destino;
 	}
 
 	void Update ()
-	{		
-		print ("Destino jogador: "+destino.ToString());
-		print ("Jogador: "+myTransform.position.ToString());
-		print ("Distancia: "+distanciaDestino.ToString());
+	{
+		
+		//print ("Jogador: " + myTransform.position.ToString ());
 
-		if (myTransform.position != destino) {
-			animator.SetBool ("andando", false);
+		if (myTransform.position != destino) {			
+			
 			distanciaDestino = Vector3.Distance (destino, myTransform.position);
+			//print ("Distancia: " + distanciaDestino.ToString ());
+
+			if (distanciaDestino < 0.5) {
+				animator.SetBool ("andando", false);
+			} else {
+				animator.SetBool ("andando", true);
+			}
 
 			if (destino.x < myTransform.position.x) {				
 				view.flipX = true;
@@ -67,12 +79,7 @@ public class MovePlayer : MonoBehaviour
 				view.flipX = false;
 			}
 
-			if (distanciaDestino > .1) {
-				myTransform.position = Vector3.MoveTowards (myTransform.position, destino, velocidade * Time.deltaTime);
-				animator.SetBool ("andando", true);
-			} else {
-				animator.SetBool ("andando", false);
-			}
-		}	
+			agent.SetDestination (destino);
+		}
 	}
 }

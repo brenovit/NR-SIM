@@ -45,23 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Ps2D\Editor\Backpack.cs" />
-     <Compile Include="Assets\Ps2D\Editor\ColliderCreator.cs" />
-     <Compile Include="Assets\Ps2D\Editor\EditorGraphics.cs" />
-     <Compile Include="Assets\Ps2D\Editor\FormatGuesser.cs" />
-     <Compile Include="Assets\Ps2D\Editor\Layer.cs" />
-     <Compile Include="Assets\Ps2D\Editor\LayerMap.cs" />
-     <Compile Include="Assets\Ps2D\Editor\Layout.cs" />
-     <Compile Include="Assets\Ps2D\Editor\LayoutEditor.cs" />
-     <Compile Include="Assets\Ps2D\Editor\Loader.cs" />
-     <Compile Include="Assets\Ps2D\Editor\MapWatcher.cs" />
-     <Compile Include="Assets\Ps2D\Editor\MiniJSON.cs" />
-     <Compile Include="Assets\Ps2D\Editor\PixelBounds.cs" />
-     <Compile Include="Assets\Ps2D\Editor\SortingLayers.cs" />
-     <Compile Include="Assets\Ps2D\Editor\SpriteAssigner.cs" />
-     <Compile Include="Assets\Ps2D\Editor\SpriteCreator.cs" />
-     <Compile Include="Assets\Ps2D\Editor\UnitySpriteLayer.cs" />
-     <None Include="Assets\Ps2D\readme.txt" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Editor\PolyNav2DInspector.cs" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -92,8 +76,8 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.LinuxStandalone.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>

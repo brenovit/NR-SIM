@@ -39,3 +39,4 @@ C:\Breno\JogoSeguranca\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\Breno\JogoSeguranca\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Breno\JogoSeguranca\obj\Debug\Assembly-CSharp.dll
 C:\Breno\JogoSeguranca\obj\Debug\Assembly-CSharp.pdb
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache

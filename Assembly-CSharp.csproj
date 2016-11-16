@@ -45,13 +45,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PolyNav2D\DEMO\Scripts\ClickToMove.cs" />
+     <Compile Include="Assets\PolyNav2D\DEMO\Scripts\MoveBetween.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\AStar.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\Heap.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNav2D.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavAgent.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavObstacle.cs" />
      <Compile Include="Assets\_Script\CameraController.cs" />
      <Compile Include="Assets\_Script\Checklist.cs" />
      <Compile Include="Assets\_Script\Cronometro.cs" />
      <Compile Include="Assets\_Script\EsconderPanel.cs" />
      <Compile Include="Assets\_Script\FloorAction.cs" />
+     <Compile Include="Assets\_Script\Item.cs" />
      <Compile Include="Assets\_Script\MovePlayer.cs" />
-     <Compile Include="Assets\_Script\Objeto.cs" />
+     <Compile Include="Assets\_Script\Porta.cs" />
+     <Compile Include="Assets\_Script\Quiz.cs" />
+     <Compile Include="Assets\_Script\SceneController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

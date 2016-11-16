@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{7AF5F96C-F534-6A77-93AC-C46DB856CE2D}") = "JogoSeguranca", "Assembly-CSharp.csproj", "{96E7B6FB-8029-7958-5009-D6EE6F2F9A13}"
 EndProject
+Project("{7AF5F96C-F534-6A77-93AC-C46DB856CE2D}") = "JogoSeguranca", "Assembly-CSharp-Editor.csproj", "{EB1C952C-17AD-D5AD-F127-9CAFED67C162}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{96E7B6FB-8029-7958-5009-D6EE6F2F9A13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96E7B6FB-8029-7958-5009-D6EE6F2F9A13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96E7B6FB-8029-7958-5009-D6EE6F2F9A13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB1C952C-17AD-D5AD-F127-9CAFED67C162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB1C952C-17AD-D5AD-F127-9CAFED67C162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB1C952C-17AD-D5AD-F127-9CAFED67C162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB1C952C-17AD-D5AD-F127-9CAFED67C162}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

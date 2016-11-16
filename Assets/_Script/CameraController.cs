@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
 
 	public GameObject jogador;
 	private Vector3 equilibrio;
@@ -11,7 +12,8 @@ public class CameraController : MonoBehaviour {
 	public float minima;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		if (jogador == null) {
 			jogador = GameObject.FindGameObjectWithTag ("Player");
 		}
@@ -21,9 +23,10 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void LateUpdate ()
+	{
 		camera = jogador.transform.position + equilibrio;
-		camera.y = 0.5f;
+		camera.y = 0;
 		camera.z = -10;
 
 		if (camera.x > maxima) {

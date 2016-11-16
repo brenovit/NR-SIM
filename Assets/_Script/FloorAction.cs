@@ -1,23 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FloorAction : MonoBehaviour {
-
+public class FloorAction : MonoBehaviour
+{
 	private Vector3 mousePosition;
 	public MovePlayer jogador;
 
-	void Start(){
+	void Start ()
+	{
 		if (jogador == null) {
-			jogador = GameObject.FindGameObjectWithTag ("Player").GetComponent<MovePlayer>();
+			jogador = GameObject.FindGameObjectWithTag ("Player").GetComponent<MovePlayer> ();
 		}
 	}
 
-	void OnMouseDown (){	
+	void OnMouseDown ()
+	{	
 		if (Input.GetMouseButtonDown (0)) {
 			mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);	//recebe a posição do clique do mouse
-			mousePosition.z = 0;
+			mousePosition.z = jogador.transform.position.z;
 			jogador.MoverAte (mousePosition);
 		}
-		print ("Em: "+mousePosition.ToString());
+		print ("Destino jogador: " + mousePosition.ToString ());
 	}
 }
