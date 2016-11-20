@@ -5,17 +5,16 @@ using System.Collections.Generic;
 
 public class MainScene : MonoBehaviour
 {
-	private Persistencia db;
 	private List<Item> lista;
 
 	void Awake ()
 	{
-		db = this.GetComponent<Persistencia> ().GetInstance ();
+
 	}
 
 	void Start ()
 	{
-		lista = db.GetAllItens ();
+		lista = new List<Item> ();
 		foreach (Item item in lista) {
 			print (item.ToString ());
 		}

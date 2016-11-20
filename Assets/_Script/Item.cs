@@ -4,17 +4,18 @@ using SQLiter;
 
 public class Item : MonoBehaviour
 {
-	private Persistencia db;
+	private DBItem db;
 	public int ID;
 	public string Nome;
 
 	void Awake ()
 	{
-		db = GameObject.FindGameObjectWithTag ("_GM").GetComponent<Persistencia> ().GetInstance ();
+
 	}
 
 	void Start ()
 	{
+		db = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBItem> ();
 		Nome = this.gameObject.name;
 		print (Nome);
 		ID = db.GetItem (Nome);
@@ -31,7 +32,7 @@ public class Item : MonoBehaviour
 		
 	}
 
-	public string ToString ()
+	public override string ToString ()
 	{
 		return this.ID + " - " + this.Nome;
 	}

@@ -55,13 +55,14 @@
      <Compile Include="Assets\_Script\CameraController.cs" />
      <Compile Include="Assets\_Script\Checklist.cs" />
      <Compile Include="Assets\_Script\Cronometro.cs" />
+     <Compile Include="Assets\_Script\DBItem.cs" />
+     <Compile Include="Assets\_Script\DataBase.cs" />
      <Compile Include="Assets\_Script\EsconderPanel.cs" />
      <Compile Include="Assets\_Script\FloorAction.cs" />
      <Compile Include="Assets\_Script\Item.cs" />
      <Compile Include="Assets\_Script\MainScene.cs" />
      <Compile Include="Assets\_Script\MovePlayer.cs" />
      <Compile Include="Assets\_Script\Pergunta.cs" />
-     <Compile Include="Assets\_Script\Persistencia.cs" />
      <Compile Include="Assets\_Script\Porta.cs" />
      <Compile Include="Assets\_Script\Quiz.cs" />
      <Compile Include="Assets\_Script\Sala1Controller.cs" />
