@@ -58,16 +58,31 @@
      <Compile Include="Assets\_Script\EsconderPanel.cs" />
      <Compile Include="Assets\_Script\FloorAction.cs" />
      <Compile Include="Assets\_Script\Item.cs" />
+     <Compile Include="Assets\_Script\MainScene.cs" />
      <Compile Include="Assets\_Script\MovePlayer.cs" />
+     <Compile Include="Assets\_Script\Pergunta.cs" />
+     <Compile Include="Assets\_Script\Persistencia.cs" />
      <Compile Include="Assets\_Script\Porta.cs" />
      <Compile Include="Assets\_Script\Quiz.cs" />
+     <Compile Include="Assets\_Script\Sala1Controller.cs" />
      <Compile Include="Assets\_Script\SceneController.cs" />
+     <None Include="Assets\Plugins\SQLiter\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="Mono.Data.SqliteClient">
+ <HintPath>H:/Projetos/ICSeguranca/Unity/JogoSeguranca/JogoSeguranca/Assets/Plugins/SQLiter/DLLs/Mono.Data.SqliteClient.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Data">
+ <HintPath>H:/Projetos/ICSeguranca/Unity/JogoSeguranca/JogoSeguranca/Assets/Plugins/SQLiter/DLLs/System.Data.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{ADC91C38-2867-8D01-EBF4-E81D95273AE0}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

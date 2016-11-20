@@ -40,3 +40,6 @@ C:\Breno\JogoSeguranca\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.
 C:\Breno\JogoSeguranca\obj\Debug\Assembly-CSharp.dll
 C:\Breno\JogoSeguranca\obj\Debug\Assembly-CSharp.pdb
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Mono.Data.SqliteClient.dll
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\System.Data.dll
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

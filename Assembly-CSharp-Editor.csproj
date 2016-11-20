@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PolyNav2D\Scripts\Editor\PolyNav2DInspector.cs" />
+     <None Include="Assets\Plugins\SQLiter\README.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -70,6 +71,12 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
+ <Reference Include="Mono.Data.SqliteClient">
+ <HintPath>H:/Projetos/ICSeguranca/Unity/JogoSeguranca/JogoSeguranca/Assets/Plugins/SQLiter/DLLs/Mono.Data.SqliteClient.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Data">
+ <HintPath>H:/Projetos/ICSeguranca/Unity/JogoSeguranca/JogoSeguranca/Assets/Plugins/SQLiter/DLLs/System.Data.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -84,6 +91,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{ADC91C38-2867-8D01-EBF4-E81D95273AE0}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{96E7B6FB-8029-7958-5009-D6EE6F2F9A13}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
