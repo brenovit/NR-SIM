@@ -20,6 +20,5 @@ public class FloorAction : MonoBehaviour
 			mousePosition.z = jogador.transform.position.z;
 			jogador.MoverAte (mousePosition);
 		}
-		print ("Destino jogador: " + mousePosition.ToString ());
 	}
 }

@@ -6,17 +6,20 @@ using ObjetoTransacional;
 
 public class MainScene : MonoBehaviour
 {
-	private List<Item> lista;
+	private List<Quiz> listaQuiz;
+	private DBQuiz dbQuiz;
 
 	void Awake ()
 	{
-
+		
 	}
 
 	void Start ()
 	{
-		lista = new List<Item> ();
-		foreach (Item item in lista) {
+		dbQuiz = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBQuiz> ();
+
+		listaQuiz = dbQuiz.GetAllQuiz ();
+		foreach (var item in listaQuiz) {
 			print (item.ToString ());
 		}
 	}

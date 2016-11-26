@@ -29,5 +29,10 @@ namespace ObjetoTransacional
 			get;
 			set;
 		}
+
+		public override string ToString ()
+		{
+			return string.Format ("[Quiz: ID={0}, Pergunta={1}, Item={2}, Imagem={3}, Resposta={4}]", ID, Pergunta, Item, Imagem, Resposta);
+		}
 	}
 }

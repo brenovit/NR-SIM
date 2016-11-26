@@ -11,12 +11,13 @@ namespace ObjetoTransacional
 		}
 
 		public string Nome { 
-			get {
-				return Nome;
-			} 
-			set { 
-				Nome = Nome.ToLower ();
-			}
+			get; 
+			set;
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ("[Item: ID={0}, Nome={1}]", ID, Nome);
 		}
 	}
 }

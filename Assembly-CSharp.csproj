@@ -54,6 +54,7 @@
      <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavObstacle.cs" />
      <Compile Include="Assets\_Script\Banco\DBItem.cs" />
      <Compile Include="Assets\_Script\Banco\DBPergunta.cs" />
+     <Compile Include="Assets\_Script\Banco\DBQuiz.cs" />
      <Compile Include="Assets\_Script\Banco\DataBase.cs" />
      <Compile Include="Assets\_Script\CameraController.cs" />
      <Compile Include="Assets\_Script\Checklist.cs" />
@@ -64,11 +65,11 @@
      <Compile Include="Assets\_Script\MovePlayer.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GameItem.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GamePergunta.cs" />
+     <Compile Include="Assets\_Script\ObjetosJogo\GameQuiz.cs" />
      <Compile Include="Assets\_Script\ObjetosTransacionais\Item.cs" />
      <Compile Include="Assets\_Script\ObjetosTransacionais\Pergunta.cs" />
      <Compile Include="Assets\_Script\ObjetosTransacionais\Quiz.cs" />
      <Compile Include="Assets\_Script\Porta.cs" />
-     <Compile Include="Assets\_Script\Quiz.cs" />
      <Compile Include="Assets\_Script\Sala1Controller.cs" />
      <Compile Include="Assets\_Script\SceneController.cs" />
      <None Include="Assets\Plugins\SQLiter\README.txt" />

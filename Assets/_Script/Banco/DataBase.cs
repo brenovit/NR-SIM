@@ -57,7 +57,8 @@ namespace SQLiter
 		/// </summary>
 		private void SQLiteInit ()
 		{
-			Debug.Log ("SQLiter - Opening SQLite Connection");
+			if (DebugMode)
+				Debug.Log ("SQLiter - Opening SQLite Connection");
 			mConnection = new SqliteConnection (SQL_DB_LOCATION);
 			mCommand = mConnection.CreateCommand ();
 			mConnection.Open ();
@@ -83,6 +84,8 @@ namespace SQLiter
 			if (DebugMode && mReader.Read ())
 				Debug.Log ("SQLiter - synchronous value is: " + mReader.GetInt32 (0));
 			mReader.Close ();
+			if (DebugMode)
+				Debug.Log ("SQLiter - Connection Openned");
 		}
 
 		/// <summary>

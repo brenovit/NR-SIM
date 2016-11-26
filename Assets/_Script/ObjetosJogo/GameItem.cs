@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using SQLiter;
+using ObjetoTransacional;
 
 namespace ObjetosJogo
 {
 	public class GameItem : MonoBehaviour
 	{
+		public string nome;
 		private DBItem db;
+		public Quiz quiz;
 
 		void Awake ()
 		{
@@ -16,10 +19,6 @@ namespace ObjetosJogo
 		void Start ()
 		{
 			db = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBItem> ();
-			/*Nome = this.gameObject.name;
-		print (Nome);
-		ID = db.GetItem (Nome);
-		print (ID);*/
 		}
 
 		void Update ()
@@ -29,12 +28,7 @@ namespace ObjetosJogo
 
 		void OnMouseDown ()
 		{
-		
+			Debug.Log ("cliquei no quiz");
 		}
-
-		/*public override string ToString ()
-	{
-		return this.ID + " - " + this.Nome;
-	}*/
 	}
 }

@@ -56,6 +56,8 @@ namespace SQLiter
 		void Start ()
 		{
 			db = gameObject.GetComponent <DataBase> ().GetInstance ();	//pega o gameobject que contem a classe Database
+			if (DebugMode)
+				Debug.Log (db.ToString ());
 		}
 
 		#region Insert
@@ -91,14 +93,16 @@ namespace SQLiter
 		/// </summary>
 		public List<Item> GetAllItens ()
 		{
-			List<Item> lista = null;
+			List<Item> lista = new List<Item> ();
 			// if you have a bunch of stuff, this is going to be inefficient and a pain.  it's just for testing/show
 			mSQLString = "SELECT id, nome FROM " + SQL_TABLE_NAME;
 			mReader = db.ExecuteQuery (mSQLString);
+
 			while (mReader.Read ()) {
 				Item item = new Item ();
 				item.ID = mReader.GetInt32 (0);
 				item.Nome = mReader.GetString (1);
+
 				lista.Add (item);
 
 				// view our output
@@ -109,11 +113,32 @@ namespace SQLiter
 		}
 
 		/// <summary>
+		/// Quick method to show how you can query everything.  Expland on the query parameters to limit what you're looking for, etc.
+		/// </summary>
+		public Item GetItem (int id)
+		{
+			Item item = new Item ();
+			// if you have a bunch of stuff, this is going to be inefficient and a pain.  it's just for testing/show
+			mSQLString = "SELECT id, nome FROM " + SQL_TABLE_NAME + " WHERE " + COL_ID + " = '" + id + "'";
+			mReader = db.ExecuteQuery (mSQLString);
+
+			while (mReader.Read ()) {				
+				item.ID = mReader.GetInt32 (0);
+				item.Nome = mReader.GetString (1);
+			
+				// view our output
+				if (DebugMode)
+					Debug.Log (item.ToString ());
+			}
+			return item;
+		}
+
+		/// <summary>
 		/// Basic get, returning a value, busca o id do item pelo nome
 		/// </summary>
 		/// <param name="value">nome do item</param>
 		/// <returns></returns>
-		public int GetItem (string nome)
+		public int GetID (string nome)
 		{
 			return QueryInt (COL_ID, new Item () { Nome = nome });
 		}

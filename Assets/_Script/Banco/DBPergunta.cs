@@ -29,6 +29,8 @@ namespace SQLiter
 		void Start ()
 		{
 			db = gameObject.GetComponent<DataBase> ().GetInstance ();
+			if (DebugMode)
+				Debug.Log (db.ToString ());
 		}
 
 		public void Insert (Pergunta p)
@@ -56,9 +58,9 @@ namespace SQLiter
 		/// <summary>
 		/// Quick method to show how you can query everything.  Expland on the query parameters to limit what you're looking for, etc.
 		/// </summary>
-		public List<Pergunta> GetAllItens ()
+		public List<Pergunta> GetAllPerguntas ()
 		{
-			List<Pergunta> lista = null;
+			List<Pergunta> lista = new List<Pergunta> ();
 			// if you have a bunch of stuff, this is going to be inefficient and a pain.  it's just for testing/show
 			mSQLString = "SELECT id, descricao, explicacao, titulo, nbr FROM " + SQL_TABLE_NAME;
 			mReader = db.ExecuteQuery (mSQLString);
@@ -76,6 +78,30 @@ namespace SQLiter
 					Debug.Log (p.ToString ());
 			}
 			return lista;
+		}
+
+		/// <summary>
+		/// Quick method to show how you can query everything.  Expland on the query parameters to limit what you're looking for, etc.
+		/// </summary>
+		public Pergunta GetPergunta (int id)
+		{
+			Pergunta p = new Pergunta ();
+			// if you have a bunch of stuff, this is going to be inefficient and a pain.  it's just for testing/show
+			mSQLString = "SELECT id, descricao, explicacao, titulo, nbr FROM " + SQL_TABLE_NAME +
+			" WHERE " + COL_ID + " = '" + id + "'";
+			mReader = db.ExecuteQuery (mSQLString);
+			while (mReader.Read ()) {
+				p.ID = mReader.GetInt32 (0);
+				p.Descricao = mReader.GetString (1);
+				p.Explicacao = mReader.GetString (2);
+				p.Titulo = mReader.GetString (3);
+				p.NBR = mReader.GetString (4);
+
+				// view our output
+				if (DebugMode)
+					Debug.Log (p.ToString ());
+			}
+			return p;
 		}
 
 	}
