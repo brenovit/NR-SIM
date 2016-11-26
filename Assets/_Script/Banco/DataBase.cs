@@ -8,6 +8,9 @@ using System;
 
 namespace SQLiter
 {
+	/// <summary>
+	/// Data base. Classe de conexao com o banco de dados
+	/// </summary>
 	public class DataBase : MonoBehaviour
 	{
 		public static DataBase Instance = null;
@@ -30,14 +33,17 @@ namespace SQLiter
 		/// DB objects
 		/// </summary>
 		private IDbConnection mConnection = null;
+		//Variavel que recebe a conexao com o banco
 		private IDbCommand mCommand = null;
+		//executar os comandos SQL
 		private IDataReader mReader = null;
+		//processar os dados vindo do Banco
 
-		void Awake ()
+		void Awake ()	//conceito de singleton
 		{
 			if (Instance == null) {
 				Instance = this;
-				Instance.SQLiteInit ();
+				Instance.SQLiteInit ();	//inicia o banco, efetuando testes
 			}
 		}
 

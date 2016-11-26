@@ -8,6 +8,7 @@ using System.Data;
 using Mono.Data.SqliteClient;
 using System.IO;
 using System.Collections.Generic;
+using ObjetoTransacional;
 
 namespace SQLiter
 {
@@ -37,7 +38,7 @@ namespace SQLiter
 	/// </summary>
 	public class DBItem : MonoBehaviour
 	{
-		public DataBase db = null;
+		private DataBase db = null;
 		public bool DebugMode = false;
 
 		// table name
@@ -54,34 +55,26 @@ namespace SQLiter
 
 		void Start ()
 		{
-			db = gameObject.GetComponent <DataBase> ().GetInstance ();
+			db = gameObject.GetComponent <DataBase> ().GetInstance ();	//pega o gameobject que contem a classe Database
 		}
 
 		#region Insert
 
 		/// <summary>
-		/// Inserts a player into the database
+		/// Inserts a item into the database
 		/// http://www.sqlite.org/lang_insert.html
 		/// name must be unique, it's our primary key
 		/// </summary>
-		/// <param name="name"></param>
-		/// <param name="raceType"></param>
-		/// <param name="classType"></param>
-		/// <param name="gold"></param>
-		/// <param name="login"></param>
-		/// <param name="level"></param>
-		/// <param name="xp"></param>
-		public void InsertPlayer (string name)
+		/// <param name="nome">nome do item</param>
+		public void Insert (Item item)
 		{
-			name = name.ToLower ();
-
 			// note - this will replace any item that already exists, overwriting them.  
 			// normal INSERT without the REPLACE will throw an error if an item already exists
 			mSQLString = "INSERT OR REPLACE INTO " + SQL_TABLE_NAME
 			+ " ("
 			+ COL_NOME
 			+ ") VALUES ('"
-			+ name + "'"// note that string values need quote or double-quote delimiters
+			+ item.Nome + "'"// note that string values need quote or double-quote delimiters
 			+ ");";
 
 			if (DebugMode)
@@ -96,7 +89,7 @@ namespace SQLiter
 		/// <summary>
 		/// Quick method to show how you can query everything.  Expland on the query parameters to limit what you're looking for, etc.
 		/// </summary>
-		public List<Item> GetAllPlayers ()
+		public List<Item> GetAllItens ()
 		{
 			List<Item> lista = null;
 			// if you have a bunch of stuff, this is going to be inefficient and a pain.  it's just for testing/show
@@ -116,13 +109,13 @@ namespace SQLiter
 		}
 
 		/// <summary>
-		/// Basic get, returning a value
+		/// Basic get, returning a value, busca o id do item pelo nome
 		/// </summary>
-		/// <param name="value"></param>
+		/// <param name="value">nome do item</param>
 		/// <returns></returns>
-		public int GetItem (string value)
+		public int GetItem (string nome)
 		{
-			return QueryInt (COL_ID, value);
+			return QueryInt (COL_ID, new Item () { Nome = nome });
 		}
 
 		/// <summary>
@@ -131,10 +124,10 @@ namespace SQLiter
 		/// <param name="column"></param>
 		/// <param name="value"></param>
 		/// <returns></returns>
-		public string QueryString (string column, string value)
+		public string QueryString (string coluna, Item item)
 		{
 			string text = "Not Found";
-			mSQLString = "SELECT " + column + " FROM " + SQL_TABLE_NAME + " WHERE " + COL_NOME + "='" + value + "'";
+			mSQLString = "SELECT " + coluna + " FROM " + SQL_TABLE_NAME + " WHERE " + COL_NOME + "='" + item.Nome + "'";
 			mReader = db.ExecuteQuery (mSQLString);
 			if (mReader.Read ())
 				text = mReader.GetString (0);
@@ -149,10 +142,10 @@ namespace SQLiter
 		/// <param name="column"></param>
 		/// <param name="value"></param>
 		/// <returns></returns>
-		public int QueryInt (string column, string value)
+		public int QueryInt (string coluna, Item item)
 		{
 			int sel = -1;
-			mSQLString = "SELECT " + column + " FROM " + SQL_TABLE_NAME + " WHERE " + COL_NOME + "='" + value + "'";
+			mSQLString = "SELECT " + coluna + " FROM " + SQL_TABLE_NAME + " WHERE " + COL_NOME + "='" + item.Nome + "'";
 			mReader = db.ExecuteQuery (mSQLString);
 			if (mReader.Read ())
 				sel = mReader.GetInt32 (0);
@@ -171,9 +164,9 @@ namespace SQLiter
 		/// Remember strings need single/double quotes around their values
 		/// </summary>
 		/// <param name="value"></param>
-		public void SetValue (string column, int value, string name)
+		public void UpdateItem (string coluna, Item item)
 		{
-			db.ExecuteNonQuery ("UPDATE OR REPLACE " + SQL_TABLE_NAME + " SET " + column + "=" + value + " WHERE " + COL_NOME + "='" + name + "'");
+			db.ExecuteNonQuery ("UPDATE OR REPLACE " + SQL_TABLE_NAME + " SET " + coluna + "=" + item.Nome + " WHERE " + COL_ID + "='" + item.ID + "'");
 		}
 
 		#endregion
@@ -184,14 +177,11 @@ namespace SQLiter
 		/// Basic delete, using the name primary key for the 
 		/// </summary>
 		/// <param name="nameKey"></param>
-		public void DeletePlayer (string nameKey)
+		public void Delete (Item item)
 		{
-			db.ExecuteNonQuery ("DELETE FROM " + SQL_TABLE_NAME + " WHERE " + COL_NOME + "='" + nameKey + "'");
+			db.ExecuteNonQuery ("DELETE FROM " + SQL_TABLE_NAME + " WHERE " + COL_NOME + "='" + item.Nome + "'");
 		}
 
 		#endregion
-
-
-
 	}
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using SQLiter;
 using System.Collections.Generic;
+using ObjetoTransacional;
 
 public class MainScene : MonoBehaviour
 {
