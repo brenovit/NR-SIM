@@ -2,20 +2,17 @@
 using System.Collections;
 using SQLiter;
 using ObjetoTransacional;
+using UnityEngine.UI;
 
 namespace ObjetosJogo
 {
 	public class GameQuiz : MonoBehaviour
 	{
-		/*public int ID;
-		public string Descricao;
-		public string Explicacao;
-		public string NBR;
-		public string Titulo;*/
 		private DBQuiz db;
 		public Sprite imagem;
-		public GamePergunta pergunta;
 		private Quiz quiz;
+		public Text pergunta;
+		private bool resposta;
 
 		// Use this for initialization
 		void Start ()
@@ -26,7 +23,7 @@ namespace ObjetosJogo
 		// Update is called once per frame
 		void Update ()
 		{
-	
+			
 		}
 
 		public void Responder (bool resposta)
@@ -35,6 +32,14 @@ namespace ObjetosJogo
 			//mostra uma mensagem
 			//senão
 			//mostra outra
+		}
+
+		public void SendQuiz (Quiz quiz)
+		{
+			this.quiz = quiz;
+			this.pergunta.text = quiz.Pergunta.Descricao;
+			this.resposta = quiz.Resposta;
+			gameObject.SetActive (true);
 		}
 	}
 }

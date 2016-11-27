@@ -140,7 +140,7 @@ namespace SQLiter
 		/// <returns></returns>
 		public int GetID (string nome)
 		{
-			return QueryInt (COL_ID, new Item () { Nome = nome });
+			return QueryInt (COL_ID, nome);
 		}
 
 		/// <summary>
@@ -167,10 +167,10 @@ namespace SQLiter
 		/// <param name="column"></param>
 		/// <param name="value"></param>
 		/// <returns></returns>
-		public int QueryInt (string coluna, Item item)
+		public int QueryInt (string coluna, string nome)
 		{
 			int sel = -1;
-			mSQLString = "SELECT " + coluna + " FROM " + SQL_TABLE_NAME + " WHERE " + COL_NOME + "='" + item.Nome + "'";
+			mSQLString = "SELECT " + coluna + " FROM " + SQL_TABLE_NAME + " WHERE " + COL_NOME + "='" + nome + "'";
 			mReader = db.ExecuteQuery (mSQLString);
 			if (mReader.Read ())
 				sel = mReader.GetInt32 (0);

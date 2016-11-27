@@ -10,25 +10,33 @@ namespace ObjetosJogo
 		public string nome;
 		private DBItem db;
 		public Quiz quiz;
+		[HideInInspector]
+		public Item item;
+		public GameQuiz gQuiz;
 
 		void Awake ()
 		{
-
+			
 		}
 
 		void Start ()
 		{
 			db = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBItem> ();
+			item = new Item ();
+			item.Nome = this.gameObject.name;
+			item.ID = db.GetID (item.Nome);
+
+			//gQuiz = GameObject.FindGameObjectWithTag ("Quiz").GetComponent<GameQuiz> ();
 		}
 
 		void Update ()
 		{
-		
+			
 		}
 
 		void OnMouseDown ()
 		{
-			Debug.Log ("cliquei no quiz");
+			gQuiz.SendQuiz (quiz);
 		}
 	}
 }

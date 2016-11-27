@@ -10,8 +10,6 @@ public class EsconderPanel : MonoBehaviour
 
 	public int pontos = 200;
 
-	private bool ativo = false;
-
 	public void Ocultar ()
 	{
 		panel.SetActive (false);
