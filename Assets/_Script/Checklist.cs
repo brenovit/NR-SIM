@@ -10,12 +10,7 @@ public class Checklist : MonoBehaviour
 
 	public void MostrarCheckList ()
 	{
-		if (ativado) {
-			ativado = false;
-			panelCheckList.SetActive (ativado);
-		} else {
-			ativado = true;
-			panelCheckList.SetActive (ativado);
-		}
+		ativado = !ativado;
+		panelCheckList.SetActive (ativado);
 	}
 }

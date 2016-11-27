@@ -21,7 +21,7 @@ namespace ObjetoTransacional
 			}
 
 			set {				
-				descricao = value.ToString ();
+				descricao = string.Format ("{0}", value.ToString ());
 			}
 		}
 

@@ -6,15 +6,12 @@ public class EsconderPanel : MonoBehaviour
 {
 	public GameObject panel;
 	public GameObject popUp;
-	public Text lblPontos;
-
-	public int pontos = 200;
 
 	public void Ocultar ()
 	{
 		panel.SetActive (false);
 		popUp.SetActive (true);
-		lblPontos.text = (pontos += 200).ToString ("0000");
+
 	}
 
 }
