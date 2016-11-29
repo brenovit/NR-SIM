@@ -5,6 +5,7 @@ using ObjetoTransacional;
 
 namespace ObjetosJogo
 {
+	[RequireComponent (typeof(BoxCollider2D))]
 	public class GameItem : MonoBehaviour
 	{
 		public string nome;
@@ -12,12 +13,8 @@ namespace ObjetosJogo
 		public Quiz quiz;
 		[HideInInspector]
 		public Item item;
-		public GameQuiz gQuiz;
-
-		void Awake ()
-		{
-			
-		}
+		public ItensManager itemManager;
+		private bool jaRespondeu = false;
 
 		void Start ()
 		{
@@ -36,7 +33,13 @@ namespace ObjetosJogo
 
 		void OnMouseDown ()
 		{
-			gQuiz.SendQuiz (quiz);
+			if (!jaRespondeu) {
+				itemManager.MostraQuiz (quiz);
+				jaRespondeu = true;
+			} else {
+				itemManager.MostraExplicacao (quiz);
+			}
+
 		}
 	}
 }

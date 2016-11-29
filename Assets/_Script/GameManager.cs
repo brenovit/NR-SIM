@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ObjetoTransacional;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -16,4 +17,6 @@ public class GameManager : MonoBehaviour
 	{
 		pontos += valor;
 	}
+
+
 }

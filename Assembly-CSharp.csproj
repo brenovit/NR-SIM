@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\PolyNav2D\DEMO\Scripts\ClickToMove.cs" />
      <Compile Include="Assets\PolyNav2D\DEMO\Scripts\MoveBetween.cs" />
      <Compile Include="Assets\PolyNav2D\Scripts\Runtime\AStar.cs" />
@@ -58,10 +57,12 @@
      <Compile Include="Assets\_Script\Banco\DBQuiz.cs" />
      <Compile Include="Assets\_Script\Banco\DataBase.cs" />
      <Compile Include="Assets\_Script\CameraController.cs" />
+     <Compile Include="Assets\_Script\Cenas\Sala1Controller.cs" />
      <Compile Include="Assets\_Script\Checklist.cs" />
      <Compile Include="Assets\_Script\Cronometro.cs" />
      <Compile Include="Assets\_Script\EsconderPanel.cs" />
      <Compile Include="Assets\_Script\FloorAction.cs" />
+     <Compile Include="Assets\_Script\GameManager.cs" />
      <Compile Include="Assets\_Script\ItensManager.cs" />
      <Compile Include="Assets\_Script\MovePlayer.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GameItem.cs" />
@@ -71,7 +72,6 @@
      <Compile Include="Assets\_Script\ObjetosTransacionais\Pergunta.cs" />
      <Compile Include="Assets\_Script\ObjetosTransacionais\Quiz.cs" />
      <Compile Include="Assets\_Script\Porta.cs" />
-     <Compile Include="Assets\_Script\Sala1Controller.cs" />
      <Compile Include="Assets\_Script\SceneController.cs" />
      <None Include="Assets\Plugins\SQLiter\README.txt" />
  <Reference Include="UnityEngine.UI">

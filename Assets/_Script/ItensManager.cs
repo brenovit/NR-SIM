@@ -4,12 +4,35 @@ using SQLiter;
 using System.Collections.Generic;
 using ObjetoTransacional;
 using ObjetosJogo;
+using UnityEngine.UI;
+using System.Linq;
+
+[System.Serializable]
+public class GameObjectQuiz
+{
+	public GameObject painel;
+	public Text pergunta;
+	public Image imagem;
+	public bool resposta;
+	public Quiz quiz;
+}
+
+[System.Serializable]
+public class GameObjectPergunta
+{
+	public GameObject painel;
+	public Text titulo;
+	public Text explicacao;
+}
 
 public class ItensManager : MonoBehaviour
 {
 	private List<Quiz> listaQuiz;
 	private DBQuiz dbQuiz;
 	private GameObject[] itens;
+	public GameObjectQuiz gOQuiz;
+	public GameObjectPergunta gOPergunta;
+	public Sprite[] imagens;
 
 	void Awake ()
 	{
@@ -36,10 +59,36 @@ public class ItensManager : MonoBehaviour
 		//agora que tenho a lista de todos os quiz, tenho que colocar cada um deles em um item.
 		//para isso preciso pegar todos os itens.
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+	public void Responder (bool resposta)
+	{			
+		GameManager.AdicionarPontos (resposta == gOQuiz.quiz.Resposta ? 200 : 0);
+		gOQuiz.painel.SetActive (false);
+	}
+
+	public void MostraQuiz (Quiz quiz)
 	{
-		
+		gOQuiz.quiz = quiz;
+		gOQuiz.pergunta.text = quiz.Pergunta.Descricao;
+		gOQuiz.resposta = quiz.Resposta;
+
+		//busca no vetor de imagens a imagem que tem o mesmo nome que o objeto quiz retornado do banco
+		//se tiver ele atribui a imagem do quiz(canvas) a imagem do vetor;
+		for (int i = 0; i < imagens.Count (); i++) {
+			if (imagens [i].name == quiz.Imagem) {
+				gOQuiz.imagem.sprite = imagens [i];
+				break;
+			}
+		}
+
+		gOQuiz.painel.SetActive (true);
+
+	}
+
+	public void MostraExplicacao (Quiz quiz)
+	{
+		gOPergunta.titulo.text = quiz.Pergunta.NBR + " " + quiz.Pergunta.Titulo;
+		gOPergunta.explicacao.text = quiz.Pergunta.Explicacao;
+		gOPergunta.painel.SetActive (true);
 	}
 }
