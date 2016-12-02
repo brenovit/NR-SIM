@@ -13,10 +13,12 @@ public class GameManager : MonoBehaviour
 		lblPontos.text = (pontos).ToString ("0000");
 	}
 
+	/// <summary>
+	/// Adicionars the pontos.
+	/// </summary>
+	/// <param name="valor">Valor.</param>
 	public static void AdicionarPontos (int valor)
 	{
 		pontos += valor;
 	}
-
-
 }

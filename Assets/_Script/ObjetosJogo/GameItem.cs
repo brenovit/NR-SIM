@@ -14,7 +14,9 @@ namespace ObjetosJogo
 		[HideInInspector]
 		public Item item;
 		public ItensManager itemManager;
-		private bool jaRespondeu = false;
+		public UIBlock UIBlock;
+
+		public bool jaRespondeu = false;
 
 		void Start ()
 		{
@@ -22,8 +24,6 @@ namespace ObjetosJogo
 			item = new Item ();
 			item.Nome = this.gameObject.name;
 			item.ID = db.GetID (item.Nome);
-
-			//gQuiz = GameObject.FindGameObjectWithTag ("Quiz").GetComponent<GameQuiz> ();
 		}
 
 		void Update ()
@@ -34,12 +34,11 @@ namespace ObjetosJogo
 		void OnMouseDown ()
 		{
 			if (!jaRespondeu) {
-				itemManager.MostraQuiz (quiz);
-				jaRespondeu = true;
+				itemManager.MostraQuiz (this);
 			} else {
-				itemManager.MostraExplicacao (quiz);
+				itemManager.MostraExplicacao (this);
 			}
-
+			UIBlock.SetActive (true);
 		}
 	}
 }

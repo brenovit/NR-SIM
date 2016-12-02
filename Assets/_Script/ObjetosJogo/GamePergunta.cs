@@ -4,9 +4,6 @@ using UnityEngine.UI;
 
 namespace ObjetosJogo
 {
-
-	
-
 	/// <summary>
 	/// Game pergunta. Esta classe representa o descritivo da pergunta
 	/// </summary>

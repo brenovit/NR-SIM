@@ -30,14 +30,14 @@ public class ItensManager : MonoBehaviour
 	private List<Quiz> listaQuiz;
 	private DBQuiz dbQuiz;
 	private GameObject[] itens;
+	public GameItemCheckList[] itemCheckList;
+
 	public GameObjectQuiz gOQuiz;
 	public GameObjectPergunta gOPergunta;
 	public Sprite[] imagens;
 
-	void Awake ()
-	{
-		
-	}
+	public GameItem gameItem;
+	public GameObject checkList;
 
 	void Start ()
 	{
@@ -46,11 +46,15 @@ public class ItensManager : MonoBehaviour
 		listaQuiz = dbQuiz.GetAllQuiz ();	//pego todos os quiz da base
 
 		itens = GameObject.FindGameObjectsWithTag ("Item");	//pego todos os gameobject com a tag Item
-
+		int x = 0;
 		for (int i = 0; i < itens.Length; i++) {
 			foreach (var quiz in listaQuiz) {
 				if (itens [i].gameObject.GetComponent <GameItem> ().item.ID == quiz.Item.ID) {
 					itens [i].gameObject.GetComponent <GameItem> ().quiz = quiz;
+					if (x < itemCheckList.Count ()) {
+						itemCheckList [x].EnviarQuiz (itens [i].gameObject.GetComponent <GameItem> ());
+						x++;
+					}
 				}
 			}
 		}
@@ -60,35 +64,52 @@ public class ItensManager : MonoBehaviour
 		//para isso preciso pegar todos os itens.
 	}
 
+	/// <summary>
+	/// Responder the specified resposta. Evento do Click
+	/// </summary>
+	/// <param name="resposta">If set to <c>true</c> resposta.</param>
 	public void Responder (bool resposta)
 	{			
 		GameManager.AdicionarPontos (resposta == gOQuiz.quiz.Resposta ? 200 : 0);
+		gameItem.jaRespondeu = true;
 		gOQuiz.painel.SetActive (false);
 	}
 
-	public void MostraQuiz (Quiz quiz)
+	/// <summary>
+	/// Mostras the quiz. Evento de Click
+	/// </summary>
+	/// <param name="quiz">Quiz.</param>
+	public void MostraQuiz (GameItem gameItem)
 	{
-		gOQuiz.quiz = quiz;
-		gOQuiz.pergunta.text = quiz.Pergunta.Descricao;
-		gOQuiz.resposta = quiz.Resposta;
+		this.gameItem = gameItem;
+		gOQuiz.quiz = gameItem.quiz;
+		gOQuiz.pergunta.text = gameItem.quiz.Pergunta.Descricao;
+		gOQuiz.resposta = gameItem.quiz.Resposta;
 
 		//busca no vetor de imagens a imagem que tem o mesmo nome que o objeto quiz retornado do banco
 		//se tiver ele atribui a imagem do quiz(canvas) a imagem do vetor;
 		for (int i = 0; i < imagens.Count (); i++) {
-			if (imagens [i].name == quiz.Imagem) {
+			if (imagens [i].name == gameItem.quiz.Imagem) {
 				gOQuiz.imagem.sprite = imagens [i];
 				break;
 			}
 		}
-
 		gOQuiz.painel.SetActive (true);
-
 	}
 
-	public void MostraExplicacao (Quiz quiz)
+	/// <summary>
+	/// Mostras the explicacao. Evento de Clicks
+	/// </summary>
+	/// <param name="quiz">Quiz.</param>
+	public void MostraExplicacao (GameItem gameItem)
 	{
-		gOPergunta.titulo.text = quiz.Pergunta.NBR + " " + quiz.Pergunta.Titulo;
-		gOPergunta.explicacao.text = quiz.Pergunta.Explicacao;
+		gOPergunta.titulo.text = gameItem.quiz.Pergunta.NBR + " " + gameItem.quiz.Pergunta.Titulo;
+		gOPergunta.explicacao.text = gameItem.quiz.Pergunta.Explicacao;
 		gOPergunta.painel.SetActive (true);
+	}
+
+	public void AtivarCheckList (bool ativo)
+	{
+		checkList.SetActive (!ativo);
 	}
 }
