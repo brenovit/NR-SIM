@@ -58,11 +58,11 @@
      <Compile Include="Assets\_Script\Banco\DataBase.cs" />
      <Compile Include="Assets\_Script\CameraController.cs" />
      <Compile Include="Assets\_Script\Cenas\Sala1Controller.cs" />
-     <Compile Include="Assets\_Script\Checklist.cs" />
      <Compile Include="Assets\_Script\Cronometro.cs" />
      <Compile Include="Assets\_Script\EsconderPanel.cs" />
      <Compile Include="Assets\_Script\FloorAction.cs" />
      <Compile Include="Assets\_Script\GameManager.cs" />
+     <Compile Include="Assets\_Script\GerenciadorEvento.cs" />
      <Compile Include="Assets\_Script\ItensManager.cs" />
      <Compile Include="Assets\_Script\MovePlayer.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GameItem.cs" />
