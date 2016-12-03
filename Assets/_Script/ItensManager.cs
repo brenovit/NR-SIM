@@ -37,7 +37,6 @@ public class ItensManager : MonoBehaviour
 	public Sprite[] imagens;
 
 	public GameItem gameItem;
-	public GameObject checkList;
 
 	void Start ()
 	{
@@ -46,6 +45,7 @@ public class ItensManager : MonoBehaviour
 		listaQuiz = dbQuiz.GetAllQuiz ();	//pego todos os quiz da base
 
 		itens = GameObject.FindGameObjectsWithTag ("Item");	//pego todos os gameobject com a tag Item
+
 		int x = 0;
 		for (int i = 0; i < itens.Length; i++) {
 			foreach (var quiz in listaQuiz) {
@@ -58,7 +58,6 @@ public class ItensManager : MonoBehaviour
 				}
 			}
 		}
-
 		//comparo cada item na lista com cada 
 		//agora que tenho a lista de todos os quiz, tenho que colocar cada um deles em um item.
 		//para isso preciso pegar todos os itens.
@@ -106,10 +105,5 @@ public class ItensManager : MonoBehaviour
 		gOPergunta.titulo.text = gameItem.quiz.Pergunta.NBR + " " + gameItem.quiz.Pergunta.Titulo;
 		gOPergunta.explicacao.text = gameItem.quiz.Pergunta.Explicacao;
 		gOPergunta.painel.SetActive (true);
-	}
-
-	public void AtivarCheckList (bool ativo)
-	{
-		checkList.SetActive (!ativo);
 	}
 }

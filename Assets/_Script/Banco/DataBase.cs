@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
-using System.Data;
-using Mono.Data.SqliteClient;
+﻿using UnityEngine;
 using System.IO;
-using System.Collections.Generic;
+using System.Data;
 using System;
+using Mono.Data.SqliteClient;
 
 namespace SQLiter
 {
@@ -23,12 +21,7 @@ namespace SQLiter
 
 		// feel free to change where the DBs are stored
 		// this file will show up in the Unity inspector after a few seconds of running it the first time
-		private static readonly string SQL_DB_LOCATION = "URI=file:"
-		                                                 + Application.dataPath + Path.DirectorySeparatorChar
-		                                                 + "Plugins" + Path.DirectorySeparatorChar
-		                                                 + "SQLiter" + Path.DirectorySeparatorChar
-		                                                 + "Databases" + Path.DirectorySeparatorChar
-		                                                 + SQL_DB_NAME + ".db";
+		private static string SQL_DB_LOCATION = "";
 		/// <summary>
 		/// DB objects
 		/// </summary>
@@ -40,9 +33,15 @@ namespace SQLiter
 		//processar os dados vindo do Banco
 
 		void Awake ()	//conceito de singleton
-		{
+		{			
 			if (Instance == null) {
 				Instance = this;
+				SQL_DB_LOCATION = "URI=file:"
+				+ Application.dataPath + Path.DirectorySeparatorChar
+				//+ "Plugins" + Path.DirectorySeparatorChar
+				//+ "SQLiter" + Path.DirectorySeparatorChar
+				//+ "Databases" + Path.DirectorySeparatorChar
+				+ SQL_DB_NAME + ".db";
 				Instance.SQLiteInit ();	//inicia o banco, efetuando testes
 			}
 		}

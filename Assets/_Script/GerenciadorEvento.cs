@@ -8,10 +8,9 @@ public class GerenciadorEvento : MonoBehaviour
 	public GameObject panelQuiz;
 	public GameObject panelDetalhe;
 
-	public Text lblChecklist;
 	private bool ativado = false;
 
-	public UIBlock UiBlock;
+	public GameObject UiBlock;
 
 	public void MostrarCheckList ()
 	{
@@ -25,5 +24,4 @@ public class GerenciadorEvento : MonoBehaviour
 		panelDetalhe.SetActive (false);
 		UiBlock.SetActive (false);
 	}
-
 }

@@ -2,6 +2,8 @@
 using System.Collections;
 using SQLiter;
 using ObjetoTransacional;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ObjetosJogo
 {
@@ -14,28 +16,28 @@ namespace ObjetosJogo
 		[HideInInspector]
 		public Item item;
 		public ItensManager itemManager;
-		public UIBlock UiBlock;
+		public GameObject UiBlock;
 
 		public bool jaRespondeu = false;
 
 		void Start ()
 		{
 			db = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBItem> ();
+			itemManager = GameObject.FindGameObjectWithTag ("GM").GetComponent<ItensManager> ();
+
 			item = new Item ();
 			item.Nome = this.gameObject.name;
 			item.ID = db.GetID (item.Nome);
-			itemManager = GameObject.FindGameObjectWithTag ("_GM").GetComponent<ItensManager> ();
-			UiBlock = GameObject.FindGameObjectWithTag ("UiBlock").GetComponent <UIBlock> ();
 		}
 
 		void OnMouseDown ()
 		{
-			UiBlock.SetActive (true);
 			if (!jaRespondeu) {
 				itemManager.MostraQuiz (this);
 			} else {
 				itemManager.MostraExplicacao (this);
 			}
+			UiBlock.SetActive (true);
 		}
 	}
 }

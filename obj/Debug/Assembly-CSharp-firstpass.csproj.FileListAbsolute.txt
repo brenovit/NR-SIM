@@ -1,6 +1,5 @@
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
-H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Mono.Data.SqliteClient.dll
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\System.Data.dll
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEditor.dll
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.dll
@@ -21,3 +20,5 @@ H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEn
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\obj\Debug\Assembly-CSharp-firstpass.dll
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\obj\Debug\Assembly-CSharp-firstpass.pdb
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Mono.Data.SqliteClient.dll
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Mono.Data.Sqlite.dll

@@ -81,7 +81,7 @@ namespace SQLiter
 				//procura o item na tabela de itens pelo id do item
 				q.Item = dbI.GetItem (mReader.GetInt32 (2));
 				q.Imagem = mReader.GetString (3);
-				q.Resposta = mReader.GetString (4) == "Y" ? true : false;
+				q.Resposta = mReader.GetBoolean (4);
 				lista.Add (q);
 
 				// view our output
