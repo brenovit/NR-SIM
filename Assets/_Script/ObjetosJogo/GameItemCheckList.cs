@@ -21,7 +21,7 @@ namespace ObjetosJogo
 		// Use this for initialization
 		void Start ()
 		{
-			itemManager = GameObject.FindGameObjectWithTag ("_GM").GetComponent<ItensManager> (); //instancio o objeto dbquiz
+			itemManager = GameObject.FindGameObjectWithTag ("GM").GetComponent<ItensManager> (); //instancio o objeto dbquiz
 		}
 	
 		// Update is called once per frame
@@ -34,13 +34,15 @@ namespace ObjetosJogo
 				}
 			}
 		}
-			
 
-		public void MostrarExplicacao(){
+
+		public void MostrarExplicacao ()
+		{
 			itemManager.MostraExplicacao (gameItem);
 		}
 
-		public void EnviarQuiz(GameItem gameItem){
+		public void EnviarQuiz (GameItem gameItem)
+		{
 			this.gameItem = gameItem;
 			titulo.text = gameItem.quiz.Pergunta.Titulo;
 		}

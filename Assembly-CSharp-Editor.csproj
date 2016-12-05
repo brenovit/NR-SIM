@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\PolyNav2D\Scripts\Editor\PolyNav2DInspector.cs" />
      <None Include="Assets\Plugins\SQLiter\README.txt" />
+     <None Include="Assets\README.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

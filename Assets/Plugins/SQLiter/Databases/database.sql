@@ -39,7 +39,7 @@ CREATE TABLE [main].[quiz](
     [imagem] VARCHAR(30), 
     [resposta] BOOL);
 
-/* Table data [item] Record count: 17 */
+/* Table data [item] Record count: 19 */
 INSERT INTO [item]([rowid], [id], [nome]) VALUES(1, 1, 'extintor-sin-chao-err');
 INSERT INTO [item]([rowid], [id], [nome]) VALUES(2, 2, 'extintor-sin-cor-err');
 INSERT INTO [item]([rowid], [id], [nome]) VALUES(3, 3, 'extintor-alto-err');
@@ -56,7 +56,9 @@ INSERT INTO [item]([rowid], [id], [nome]) VALUES(13, 13, 'porta-sin-cor-err');
 INSERT INTO [item]([rowid], [id], [nome]) VALUES(14, 14, 'extintor-ok');
 INSERT INTO [item]([rowid], [id], [nome]) VALUES(15, 15, 'porta-sin-cor-ok');
 INSERT INTO [item]([rowid], [id], [nome]) VALUES(16, 16, 'porta-sin-ok');
-INSERT INTO [item]([rowid], [id], [nome]) VALUES(17, 17, 'vazio');
+INSERT INTO [item]([rowid], [id], [nome]) VALUES(17, 17, 'luminaria_desligada');
+INSERT INTO [item]([rowid], [id], [nome]) VALUES(18, 18, 'luminaria_ligada');
+INSERT INTO [item]([rowid], [id], [nome]) VALUES(19, 19, 'luminaria_ok');
 
 /* Table data [pergunta] Record count: 8 */
 INSERT INTO [pergunta]([rowid], [id], [descricao], [explicacao], [nbr], [titulo]) VALUES(1, 1, 'Esta sinalização de piso está correta?', 'A sinalização de piso correta é vermelha com bordas amarelas.', '12693', 'Sistemas de proteção por extintores de incêndio');
@@ -82,9 +84,9 @@ INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]
 INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(11, 11, 3, 14, 'extintor_sin_alt_1', 1);
 INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(12, 12, 3, 7, 'extintor_sin_alt_2', 0);
 INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(13, 13, 3, 8, 'extintor_sin_alt_3', 1);
-INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(14, 14, 7, 17, 'lumn_1', 1);
-INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(15, 15, 7, 17, 'lumn_2', 1);
-INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(16, 16, 7, 17, 'lumn_3', 1);
+INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(14, 14, 7, 18, 'lumn_1', 0);
+INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(15, 15, 7, 19, 'lumn_2', 1);
+INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(16, 16, 7, 17, 'lumn_3', 0);
 INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(17, 17, 6, 16, 'porta_sin_top_1', 1);
 INSERT INTO [quiz]([rowid], [id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(18, 18, 6, 12, 'porta_sin_top_2', 0);
 

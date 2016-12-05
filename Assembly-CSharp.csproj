@@ -64,6 +64,7 @@
      <Compile Include="Assets\_Script\GameManager.cs" />
      <Compile Include="Assets\_Script\GerenciadorEvento.cs" />
      <Compile Include="Assets\_Script\ItensManager.cs" />
+     <Compile Include="Assets\_Script\Menu.cs" />
      <Compile Include="Assets\_Script\MovePlayer.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GameItem.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GameItemCheckList.cs" />
@@ -76,6 +77,7 @@
      <Compile Include="Assets\_Script\SceneController.cs" />
      <Compile Include="Assets\_Script\TrocarCena.cs" />
      <None Include="Assets\Plugins\SQLiter\README.txt" />
+     <None Include="Assets\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -16,6 +16,7 @@ public class GerenciadorEvento : MonoBehaviour
 	{
 		ativado = !ativado;
 		panelCheckList.SetActive (ativado);
+		UiBlock.SetActive (ativado);
 	}
 
 	public void FecharPainel ()
