@@ -44,3 +44,11 @@ H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\obj\Debug\Assembly-CSh
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\obj\Debug\Assembly-CSharp.pdb
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Mono.Data.SqliteClient.dll
 H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\Mono.Data.Sqlite.dll
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.Analytics.dll
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.HoloLens.dll
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.dll
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.VR.dll
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.xml
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.Analytics.xml
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.HoloLens.xml
+H:\Projetos\ICSeguranca\Unity\JogoSeguranca\JogoSeguranca\Temp\bin\Debug\UnityEngine.VR.xml

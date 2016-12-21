@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
 	public float maxima;
 	public float minima;
 	private float y;
-	// Use this for initialization
+
 	void Start ()
 	{
 		if (jogador == null) {
@@ -22,8 +22,7 @@ public class CameraController : MonoBehaviour
 		equilibrio = jogador.transform.position - cameraPosition;
 		equilibrio.x = 0;
 	}
-	
-	// Update is called once per frame
+
 	void LateUpdate ()
 	{
 		cameraPosition = jogador.transform.position + equilibrio;
