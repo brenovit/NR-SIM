@@ -9,8 +9,7 @@ public class Cronometro : MonoBehaviour
 	public float minutos;
 	float tempSeg = 10;
 	static int segundos = 0;
-	private static Cronometro instance = null;
-
+	//private static Cronometro instance = null;
 	void LateUpdate ()
 	{
 		tempSeg = tempSeg + Time.deltaTime;
