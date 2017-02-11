@@ -53,14 +53,12 @@
      <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNav2D.cs" />
      <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavAgent.cs" />
      <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavObstacle.cs" />
-     <Compile Include="Assets\_Script\AbrirPorta.cs" />
      <Compile Include="Assets\_Script\Banco\DBItem.cs" />
      <Compile Include="Assets\_Script\Banco\DBPergunta.cs" />
      <Compile Include="Assets\_Script\Banco\DBQuiz.cs" />
      <Compile Include="Assets\_Script\Banco\DataBase.cs" />
      <Compile Include="Assets\_Script\CameraController.cs" />
      <Compile Include="Assets\_Script\Cenas\Sala1Controller.cs" />
-     <Compile Include="Assets\_Script\Cronometro.cs" />
      <Compile Include="Assets\_Script\EsconderPanel.cs" />
      <Compile Include="Assets\_Script\FloorAction.cs" />
      <Compile Include="Assets\_Script\GameManager.cs" />
@@ -79,9 +77,6 @@
      <Compile Include="Assets\_Script\SceneController.cs" />
      <None Include="Assets\Plugins\SQLiter\README.txt" />
      <None Include="Assets\README.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -96,9 +91,6 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>

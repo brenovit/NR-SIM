@@ -22,6 +22,7 @@ namespace ObjetosJogo
 
 		void Start ()
 		{
+			UiBlock = GameObject.FindGameObjectWithTag ("UIBlock");
 			db = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBItem> ();
 			itemManager = GameObject.FindGameObjectWithTag ("GM").GetComponent<ItensManager> ();
 

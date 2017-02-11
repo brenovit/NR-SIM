@@ -33,17 +33,16 @@ public class MovePlayer : MonoBehaviour
 			return _agent;			
 		}
 	}
-
-	private Transform myTransform;
 	// this transform
-	private Vector3 destino;
+	private Transform myTransform;
 	// The destination Point
-	private float distanciaDestino;
+	private Vector3 destino;
 	// The distance between myTransform and destinationPosition
-	public float velocidade;
+	private float distanciaDestino;
 	// The Speed the character will move
-	public bool andando;
+	public float velocidade;
 	public Animator animator;
+	//imagem do jogador
 	public SpriteRenderer view;
 
 	void Start ()
@@ -59,15 +58,13 @@ public class MovePlayer : MonoBehaviour
 
 	void Update ()
 	{
-		
 		//print ("Jogador: " + myTransform.position.ToString ());
-
-		if (myTransform.position != destino) {			
+		if (myTransform.position != destino) {
 			
 			distanciaDestino = Vector3.Distance (destino, myTransform.position);
 			//print ("Distancia: " + distanciaDestino.ToString ());
 
-			if (distanciaDestino < 0.5) {
+			if (distanciaDestino < 0.5) {	//se a distancia for inferio a 0.5 altera o status do jogador
 				animator.SetBool ("andando", false);
 			} else {
 				animator.SetBool ("andando", true);
