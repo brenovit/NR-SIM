@@ -96,9 +96,9 @@ namespace SQLiter
 		/// </summary>
 		/// <returns>The quiz.</returns>
 		/// <param name="i">Objeto Item com ID</param>
-		public List<Quiz> GetQuiz (Item i)
+		public List<Quiz> GetQuizByItemID (Item i)
 		{
-			List<Quiz> lista = null;
+			List<Quiz> lista = new List<Quiz> ();
 			// if you have a bunch of stuff, this is going to be inefficient and a pain.  it's just for testing/show
 			mSQLString = "SELECT id, id_pergunta, id_item, imagem, resposta FROM " + SQL_TABLE_NAME +
 			" WHERE " + COL_ITEM + "=" + i.ID;
@@ -106,13 +106,10 @@ namespace SQLiter
 			while (mReader.Read ()) {
 				Quiz q = new Quiz ();
 				q.ID = mReader.GetInt32 (0);
-
-				Pergunta p = new Pergunta ();
-				p.ID = mReader.GetInt32 (1);
-				q.Pergunta = p;
-							
-				q.Item = i;
-
+				//procura a pergunta na tabela de pergunta pelo id da pergunta
+				q.Pergunta = dbP.GetPergunta (mReader.GetInt32 (1));
+				//procura o item na tabela de itens pelo id do item
+				q.Item = dbI.GetItem (mReader.GetInt32 (2));
 				q.Imagem = mReader.GetString (3);
 				q.Resposta = mReader.GetBoolean (4);
 				lista.Add (q);

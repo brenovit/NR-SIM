@@ -1,0 +1,9 @@
+Em vez de pegar todos os Quiz da base de dados e comparar o id do item atual com todos os ids de itens dos Quizes
+Pegar o todos os itens com seus IDs
+Fazer uma busca dos Quizes na base, filtrando pelo id do item, retornando uma lista.
+Em seguida fazer um Convert.ToInt32(Random.Range(0, lista.Length)) e escolher um registro.
+Popular o gameObject de item com o registro presente nesta posição usando o lista.ElementAt(posicao).
+
+Salvar estes dados caso tenha a troca de cenas
+
+testar o start na troca de cena - se ocorrre uma vez ou varias.

@@ -40,5 +40,11 @@ namespace ObjetosJogo
 			}
 			UiBlock.SetActive (true);
 		}
+
+		public void Destroy ()
+		{
+			print ("Detruido: " + this.name);
+			Destroy (this);
+		}
 	}
 }

@@ -41,12 +41,12 @@ public class GameManager : MonoBehaviour
 
 	void LateUpdate ()
 	{		
-		tempSeg = tempSeg - Time.deltaTime;	//tempSeg decrementa de acordo com o Delta.Time(~1)
-		segundos = (int)tempSeg;	//segundos recebe o valor de tempSeg em inteiro
+		tempSeg = tempSeg - Time.deltaTime;		//tempSeg decrementa de acordo com o Delta.Time(~1)
+		segundos = (int)tempSeg;				//segundos recebe o valor de tempSeg em inteiro
 
-		if (segundos == 60) {		//se o segundos for igual a 60
-			tempSeg = 0;			//zera a tempSeg
-			minutos--;				//decrementa o minuto
+		if (segundos == 60) {					//se o segundos for igual a 60
+			tempSeg = 0;						//zera a tempSeg
+			minutos--;							//decrementa o minuto
 		}
 
 		if (minutos == 0 && segundos == 0) { //se o tempo acabar

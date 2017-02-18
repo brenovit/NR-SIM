@@ -75,6 +75,7 @@
      <Compile Include="Assets\_Script\ObjetosTransacionais\Quiz.cs" />
      <Compile Include="Assets\_Script\Porta.cs" />
      <Compile Include="Assets\_Script\SceneController.cs" />
+     <None Include="Assets\ic jogo seg.txt" />
      <None Include="Assets\Plugins\SQLiter\README.txt" />
      <None Include="Assets\README.txt" />
  <Reference Include="UnityEngine.UI">

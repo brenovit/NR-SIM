@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PolyNav2D\Scripts\Editor\PolyNav2DInspector.cs" />
+     <None Include="Assets\ic jogo seg.txt" />
      <None Include="Assets\Plugins\SQLiter\README.txt" />
      <None Include="Assets\README.txt" />
  <Reference Include="UnityEditor.Advertisements">

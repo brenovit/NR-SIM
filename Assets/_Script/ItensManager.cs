@@ -6,6 +6,7 @@ using ObjetoTransacional;
 using ObjetosJogo;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 
 [System.Serializable]
 public class GameObjectQuiz
@@ -36,31 +37,31 @@ public class ItensManager : MonoBehaviour
 	public GameObjectPergunta gOPergunta;
 	public Sprite[] imagens;
 
-	public GameItem gameItem;
+	private GameItem gameItem;
 
 	void Start ()
 	{
-		dbQuiz = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBQuiz> (); //instancio o objeto dbquiz
+		dbQuiz = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBQuiz> (); 					//instancio o objeto dbquiz
 
-		listaQuiz = dbQuiz.GetAllQuiz ();	//pego todos os quiz da base
-
-		itens = GameObject.FindGameObjectsWithTag ("Item");	//pego todos os gameobject com a tag Item
+		itens = GameObject.FindGameObjectsWithTag ("Item");											//pego todos os gameobject com a tag Item
 
 		int x = 0;
-		for (int i = 0; i < itens.Length; i++) {
-			foreach (var quiz in listaQuiz) {
-				if (itens [i].gameObject.GetComponent <GameItem> ().item.ID == quiz.Item.ID) {
-					itens [i].gameObject.GetComponent <GameItem> ().quiz = quiz;
-					if (x < itemCheckList.Count ()) {
-						itemCheckList [x].EnviarQuiz (itens [i].gameObject.GetComponent <GameItem> ());
-						x++;
-					}
+
+		for (int i = 0; i < itens.Length; i++) {													//verifica todos os itens
+			GameItem item = itens [i].gameObject.GetComponent<GameItem> ();							//pega o componente Gameitem do item atual
+			listaQuiz = dbQuiz.GetQuizByItemID (item.item);											//vai no banco e busca os quiz associados  ao item atual
+			if (listaQuiz.Count > 0) {																//se a lista não retornar vazia
+				int index = Convert.ToInt32 (UnityEngine.Random.Range (0, listaQuiz.Count - 1));	//seleciona um registro
+				item.quiz = listaQuiz.ElementAt (index);											//atribui ao quiz do item selecionado o item na lista na posição index
+				if (x < itemCheckList.Count ()) {
+					itemCheckList [x].EnviarQuiz (item);
+					x++;
+				} else {
+					item.Destroy ();
+					break;
 				}
 			}
 		}
-		//comparo cada item na lista com cada 
-		//agora que tenho a lista de todos os quiz, tenho que colocar cada um deles em um item.
-		//para isso preciso pegar todos os itens.
 	}
 
 	/// <summary>
