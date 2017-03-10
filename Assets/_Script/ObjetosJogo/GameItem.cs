@@ -16,13 +16,11 @@ namespace ObjetosJogo
 		[HideInInspector]
 		public Item item;
 		public ItensManager itemManager;
-		public GameObject UiBlock;
 
 		public bool jaRespondeu = false;
 
 		void Start ()
 		{
-			UiBlock = GameObject.FindGameObjectWithTag ("UIBlock");
 			db = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBItem> ();
 			itemManager = GameObject.FindGameObjectWithTag ("GM").GetComponent<ItensManager> ();
 
@@ -38,7 +36,7 @@ namespace ObjetosJogo
 			} else {
 				itemManager.MostraExplicacao (this);
 			}
-			UiBlock.SetActive (true);
+			UiBlock.Ativar ();
 		}
 
 		public void Destroy ()

@@ -10,19 +10,17 @@ public class GerenciadorEvento : MonoBehaviour
 
 	private bool ativado = false;
 
-	public GameObject UiBlock;
-
 	public void MostrarCheckList ()
 	{
 		ativado = !ativado;
 		panelCheckList.SetActive (ativado);
-		UiBlock.SetActive (ativado);
+		UiBlock.Ativar ();
 	}
 
 	public void FecharPainel ()
 	{
 		panelQuiz.SetActive (false);
 		panelDetalhe.SetActive (false);
-		UiBlock.SetActive (false);
+		UiBlock.Desativar ();
 	}
 }
