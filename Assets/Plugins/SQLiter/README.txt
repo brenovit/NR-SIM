@@ -1,15 +1,47 @@
 SQLiter
 
+
 ------------------------------
 Changelog
 ------------------------------
 v 1.0.0:
 - Initial release
 
+v 1.1.0:
+- Something magical I am sure
+
+v 1.2.0
+- Updated to latest SQLite version
+- Added new example case
+- Fixed bug in example code
+- Moved files to plugins folder to work with Android builds
+
+v 2.0.0
+- Added .so DLLs for Android compilation / use
+- Updated other DLLs / added appropriate folders
+- changed some variable names
+- changed when the database path is determined to Awake() method as Unity 5.4 complained about initializing stuff before scene is loaded
+- changed default location of database create along with some better comments as to what is happening
+- added more/better 'important information'
+- changed the test coroutine to wait 3 seconds instead of 1, as 1 second was not enough time for SQLite to initialize
+
 ------------------------------
 Important Information
 ------------------------------
 1. Read the setup
+2. Realize you MUST wait for SQLite to initialize before you do anything.  How you want to do this is up to you: delegate, static boolean, timing, etc.
+3. Filename Location of the Database:
+	- during builds, this is located in the project root - same level as Assets/Library/obj/ProjectSettings
+	- during runtime (Windows at least), this is located in the SAME directory as the executable
+	- you can play around with the path if you like, but build-vs-run locations need to be taken into account
+
+4. If you want to update the DLLs or replace them, go to: https://sqlite.org/download.html
+5. If you're on a version of Unity that DOES NOT deploy the appropriate DLLs into the build, copy the correct DLL file into the same directory as the .exe
+
+!!!!! 
+The Andoid .so files were a "best guess" by me, as I do not have an adroid device to test with
+If you think they are wrong, download the .aar package for Android from the sqlite downloads, extract package (via 7zip or other program), and replace with correct DLL
+
 
 ------------------------------
 Setup
@@ -25,7 +57,7 @@ From here you can delete the DB if you like.  Edit the SQLiter.cs file, view
 the way it saves/updates/inserts values, deletes items, queries stuff, how to use
 the LoomManager for multithreading, etc.  This is just a template of how to set things
 up, along with the necessary .DLLs and basic code.  It's hardly an advanced view of things,
-but the initial setup has been done.
+but the initial setup has been done.  It takes effort, but it's free.
 
 ------------------------------
 SQLite Copyright

@@ -72,6 +72,7 @@ public class ItensManager : MonoBehaviour
 	{			
 		GameManager.AdicionarPontos (resposta == gOQuiz.quiz.Resposta ? 200 : 0);
 		gameItem.jaRespondeu = true;
+		UiBlock.Desativar ();
 		gOQuiz.painel.SetActive (false);
 	}
 

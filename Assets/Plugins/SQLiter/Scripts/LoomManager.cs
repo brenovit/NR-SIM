@@ -1,4 +1,4 @@
-﻿//----------------------------------------------
+//----------------------------------------------
 // SQLiter
 // Copyright © 2014 OuijaPaw Games LLC
 //----------------------------------------------
@@ -20,8 +20,10 @@ namespace SQLiter
         {
             void QueueOnMainThread(Action action);
         }
+
         private static NullLoom _nullLoom = new NullLoom();
         private static LoomDispatcher _loom;
+
         public static ILoom Loom
         {
             get
@@ -33,14 +35,17 @@ namespace SQLiter
                 return _nullLoom as ILoom;
             }
         }
+
         void Awake()
         {
             _loom = new LoomDispatcher();
         }
+
         void OnDestroy()
         {
             _loom = null;
         }
+
         void Update()
         {
             if (Application.isPlaying)
@@ -48,10 +53,12 @@ namespace SQLiter
                 _loom.Update();
             }
         }
+
         private class NullLoom : ILoom
         {
             public void QueueOnMainThread(Action action) { }
         }
+
         private class LoomDispatcher : ILoom
         {
             private readonly List<Action> actions = new List<Action>();

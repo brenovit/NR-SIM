@@ -29,4 +29,11 @@ public class UiBlock : MonoBehaviour
 		}
 	}
 
+	public static void Alterar (bool estado)
+	{
+		if (bxCol != null) {
+			bxCol.enabled = estado;
+		}
+	}
+
 }
