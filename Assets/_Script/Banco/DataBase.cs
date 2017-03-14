@@ -17,7 +17,7 @@ namespace SQLiter
 		/// <summary>
 		/// Table name and DB actual file location
 		/// </summary>
-		private const string SQL_DB_NAME = "seguranca1";
+		private const string SQL_DB_NAME = "seguranca1.db";
 
 		// feel free to change where the DBs are stored
 		// this file will show up in the Unity inspector after a few seconds of running it the first time
@@ -36,13 +36,31 @@ namespace SQLiter
 		{			
 			if (Instance == null) {
 				Instance = this;
+				#if UNITY_ANDROID
+				//check if file exists in Application.persistentDataPath
+					string filepath = Application.persistentDataPath +"Resources" + Path.DirectorySeparatorChar + SQL_DB_NAME;
+
+					if (!File.Exists (filepath) || new System.IO.FileInfo (filepath).Length == 0) {
+					// open StreamingAssets directory and load the db ->
+				
+						WWW loadDb = new WWW ("jar:file://" + Application.dataPath + "!" + Path.DirectorySeparatorChar + "assets" + Path.DirectorySeparatorChar + "Resources" + SQL_DB_NAME);  // this is the path to your StreamingAssets in android
+						int i = 0;
+						while (!loadDb.isDone) {
+							i++;
+							if (i >= 10) {
+								break;
+							}
+						}
+						File.WriteAllBytes (filepath, loadDb.bytes);
+						}
+				SQL_DB_LOCATION = "URI=file:" + filepath;
+				#else
 				SQL_DB_LOCATION = "URI=file:"
 				+ Application.dataPath + Path.DirectorySeparatorChar
 				+ "Resources" + Path.DirectorySeparatorChar
-				//+ "Plugins" + Path.DirectorySeparatorChar
-				//+ "SQLiter" + Path.DirectorySeparatorChar
-				//+ "Databases" + Path.DirectorySeparatorChar
-				+ SQL_DB_NAME + ".db";
+				+ SQL_DB_NAME;
+				#endif			
+
 				Instance.SQLiteInit ();	//inicia o banco, efetuando testes
 			}
 		}
@@ -234,7 +252,7 @@ namespace SQLiter
 			INSERT INTO [quiz]([id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(17, 6, 16, 'porta_sin_top_1', 1);
 			INSERT INTO [quiz]([id], [id_pergunta], [id_item], [imagem], [resposta]) VALUES(18, 6, 12, 'porta_sin_top_2', 0);");
 			//make foreign key
-			ExecuteNonQuery (@"");
+			//ExecuteNonQuery (@"");
 		}
 	}
 }

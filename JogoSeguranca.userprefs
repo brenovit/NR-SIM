@@ -2,11 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Script\Banco\DataBase.cs">
     <Files>
-      <File FileName="Assets\_Script\Banco\DataBase.cs" Line="215" Column="71" />
-      <File FileName="Assets\Plugins\SQLiter\README.txt" Line="1" Column="1" />
-      <File FileName="Assets\_Script\Banco\DBItem.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Script\ItensManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Script\ObjetosJogo\GameItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Script\Banco\DataBase.cs" Line="62" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

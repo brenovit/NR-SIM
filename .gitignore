@@ -4,9 +4,12 @@ ehthumbs.db
 
 #Unity
 *.meta
+*.o
 
 # Folder config file
 Desktop.ini
+Library/
+Temp/
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
