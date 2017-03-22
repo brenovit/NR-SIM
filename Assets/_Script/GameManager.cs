@@ -44,13 +44,14 @@ public class GameManager : MonoBehaviour
 		tempSeg = tempSeg - Time.deltaTime;		//tempSeg decrementa de acordo com o Delta.Time(~1)
 		segundos = (int)tempSeg;				//segundos recebe o valor de tempSeg em inteiro
 
-		if (segundos == 60) {					//se o segundos for igual a 60
-			tempSeg = 0;						//zera a tempSeg
+		if (segundos == 00) {					//se o segundos for igual a 60
+			tempSeg = 60;						//zera a tempSeg
 			minutos--;							//decrementa o minuto
 		}
 
 		if (minutos == 0 && segundos == 0) { //se o tempo acabar
 			//a fase encerra e começa de novo
+			CloseGame ();
 		}
 		//persiste os valores de minutos e segundos
 		PlayerPrefs.SetInt ("minuto", minutos);
@@ -59,6 +60,11 @@ public class GameManager : MonoBehaviour
 		tempo = string.Format ("{0}:{1}", minutos.ToString ("00"), segundos.ToString ("00"));
 		//atribui ao Texto de lblCronometro o valor do tempo
 		lblCronometro.text = tempo;
+	}
+
+	void CloseGame ()
+	{
+		Application.Quit ();
 	}
 
 

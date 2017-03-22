@@ -27,14 +27,12 @@ namespace ObjetosJogo
 		// Update is called once per frame
 		void Update ()
 		{
-			if (gameItem != null) {
-				
+			if (gameItem != null) {				
 				if (gameItem.jaRespondeu) {
 					botao.interactable = true;
 				}
 			}
 		}
-
 
 		public void MostrarExplicacao ()
 		{
@@ -44,7 +42,7 @@ namespace ObjetosJogo
 		public void EnviarQuiz (GameItem gameItem)
 		{
 			this.gameItem = gameItem;
-			titulo.text = gameItem.quiz.Pergunta.Titulo;
+			titulo.text = "NBR-" + gameItem.quiz.Pergunta.NBR;
 		}
 	}
 }

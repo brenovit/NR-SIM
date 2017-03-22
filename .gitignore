@@ -8,8 +8,8 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
-Library/
-Temp/
+Library
+Temp
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/

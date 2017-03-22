@@ -81,7 +81,7 @@ namespace SQLiter
 			mCommand = mConnection.CreateCommand ();
 			mConnection.Open ();
 
-			// WAL = write ahead logging, very huge speed increase
+			/*// WAL = write ahead logging, very huge speed increase
 			mCommand.CommandText = "PRAGMA journal_mode = WAL;";
 			mCommand.ExecuteNonQuery ();
 
@@ -103,7 +103,7 @@ namespace SQLiter
 				Debug.Log ("SQLiter - synchronous value is: " + mReader.GetInt32 (0));
 			mReader.Close ();
 			if (DebugMode)
-				Debug.Log ("SQLiter - Connection Openned");
+				Debug.Log ("SQLiter - Connection Openned");*/
 			CreateTables ();
 			InsertDatas ();
 		}
@@ -157,7 +157,8 @@ namespace SQLiter
 		public IDbConnection GetConnection ()
 		{
 			Debug.Log ("SQLiter - Opening SQLite Connection");
-			mConnection = new SqliteConnection (SQL_DB_LOCATION);
+			if (mConnection == null)
+				mConnection = new SqliteConnection (SQL_DB_LOCATION);
 			mConnection.Open ();
 			return mConnection;
 		}

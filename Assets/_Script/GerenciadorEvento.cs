@@ -12,9 +12,8 @@ public class GerenciadorEvento : MonoBehaviour
 
 	public void MostrarCheckList ()
 	{
-		ativado = !ativado;
-		panelCheckList.SetActive (ativado);
-		UiBlock.Alterar (ativado);
+		panelCheckList.SetActive (!panelCheckList.activeSelf);
+		UiBlock.Alterar (panelCheckList.activeSelf);
 	}
 
 	public void FecharPainel ()

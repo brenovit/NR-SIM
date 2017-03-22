@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(BoxCollider2D))]
+[RequireComponent (typeof(GerenciadorEvento))]
 public class UiBlock : MonoBehaviour
 {
 	public static BoxCollider2D bxCol;
+	public GerenciadorEvento gerenciadorEvento;
 
 	void Start ()
 	{
@@ -36,4 +38,8 @@ public class UiBlock : MonoBehaviour
 		}
 	}
 
+	public void OnMouseDown ()
+	{
+		gerenciadorEvento.MostrarCheckList ();
+	}
 }

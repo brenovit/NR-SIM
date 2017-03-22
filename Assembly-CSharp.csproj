@@ -53,6 +53,7 @@
      <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNav2D.cs" />
      <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavAgent.cs" />
      <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavObstacle.cs" />
+     <Compile Include="Assets\_Script\AudioManager.cs" />
      <Compile Include="Assets\_Script\Banco\DBItem.cs" />
      <Compile Include="Assets\_Script\Banco\DBPergunta.cs" />
      <Compile Include="Assets\_Script\Banco\DBQuiz.cs" />
