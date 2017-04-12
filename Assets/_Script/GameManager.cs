@@ -2,6 +2,7 @@
 using System.Collections;
 using ObjetoTransacional;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class GameManager : MonoBehaviour
 	private int segundos = 0;
 	public int minutos;
 	private string tempo;
+
+	public GameObject panelAcabouJogo;
+
+	void Awake(){
+		panelAcabouJogo.SetActive (false);	
+	}
 
 	void Start ()
 	{
@@ -51,7 +58,7 @@ public class GameManager : MonoBehaviour
 
 		if (minutos == 0 && segundos == 0) { //se o tempo acabar
 			//a fase encerra e começa de novo
-			CloseGame ();
+			panelAcabouJogo.SetActive (true);
 		}
 		//persiste os valores de minutos e segundos
 		PlayerPrefs.SetInt ("minuto", minutos);
@@ -62,10 +69,8 @@ public class GameManager : MonoBehaviour
 		lblCronometro.text = tempo;
 	}
 
-	void CloseGame ()
+	public void CarregarCena (string cena)
 	{
-		Application.Quit ();
+		SceneManager.LoadScene (cena);
 	}
-
-
 }
