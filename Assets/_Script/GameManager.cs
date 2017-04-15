@@ -13,14 +13,16 @@ public class GameManager : MonoBehaviour
 	public Text lblCronometro;
 	//variavel temporaria para o segundo
 	private static float tempSeg = 60;
-	private int segundos = 0;
+	private int segundos = 60;
 	public int minutos;
 	private string tempo;
+	//GO para mostrar a mensagemd de fim de jogo
+	public GameObject panelFimJogo;
 
-	public GameObject panelAcabouJogo;
-
-	void Awake(){
-		panelAcabouJogo.SetActive (false);	
+	void Awake ()
+	{
+		Time.timeScale = 1;
+		panelFimJogo.SetActive (false);
 	}
 
 	void Start ()
@@ -47,19 +49,23 @@ public class GameManager : MonoBehaviour
 	}
 
 	void LateUpdate ()
-	{		
-		tempSeg = tempSeg - Time.deltaTime;		//tempSeg decrementa de acordo com o Delta.Time(~1)
-		segundos = (int)tempSeg;				//segundos recebe o valor de tempSeg em inteiro
+	{
+		if (minutos <= 0 && segundos <= 00) {
+			panelFimJogo.SetActive (true);
+			minutos = 0;
+			segundos = 0;
+			Time.timeScale = 0;
+			UiBlock.Ativar ();
+		} else {
+			tempSeg = tempSeg - Time.deltaTime;		//tempSeg decrementa de acordo com o Delta.Time(~1)
+			segundos = (int)tempSeg;				//segundos recebe o valor de tempSeg em inteiro
 
-		if (segundos == 00) {					//se o segundos for igual a 60
-			tempSeg = 60;						//zera a tempSeg
-			minutos--;							//decrementa o minuto
+			if (segundos == 00) {					//se o segundos for igual a 60
+				tempSeg = 60;						//zera a tempSeg
+				minutos--;							//decrementa o minuto
+			}
 		}
 
-		if (minutos == 0 && segundos == 0) { //se o tempo acabar
-			//a fase encerra e começa de novo
-			panelAcabouJogo.SetActive (true);
-		}
 		//persiste os valores de minutos e segundos
 		PlayerPrefs.SetInt ("minuto", minutos);
 		PlayerPrefs.SetInt ("segundos", segundos);

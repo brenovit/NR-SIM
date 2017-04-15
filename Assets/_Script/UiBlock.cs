@@ -40,6 +40,6 @@ public class UiBlock : MonoBehaviour
 
 	public void OnMouseDown ()
 	{
-		gerenciadorEvento.MostrarCheckList ();
+		//gerenciadorEvento.MostrarCheckList ();
 	}
 }
