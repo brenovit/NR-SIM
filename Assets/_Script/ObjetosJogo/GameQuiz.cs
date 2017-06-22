@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using SQLiter;
 using ObjetoTransacional;
 using UnityEngine.UI;
 using System.Linq;

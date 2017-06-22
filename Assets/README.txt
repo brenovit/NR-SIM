@@ -1,1 +1,0 @@
-Depois de compilar o projeto (versão x86), coloque a dll da pasta x86 na pasta plugins do arquivo compilado e o banco de dados na raiz da pasta nomejogo_data

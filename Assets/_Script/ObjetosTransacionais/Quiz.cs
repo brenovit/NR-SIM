@@ -5,6 +5,20 @@ namespace ObjetoTransacional
 {
 	public class Quiz
 	{
+		public Quiz(){
+
+		}
+
+		public Quiz (int id, int id_pergunta, int id_item, string imagem, bool resposta)
+		{
+			this.ID = id;
+			this.Pergunta = new Pergunta () { ID = id_pergunta };
+			this.Item = new Item () { ID = id_item };
+			this.Imagem = imagem;
+			this.Resposta = resposta;
+			
+		}
+
 		public int ID {
 			get;
 			set;
