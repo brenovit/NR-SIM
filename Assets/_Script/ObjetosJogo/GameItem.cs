@@ -9,9 +9,8 @@ namespace ObjetosJogo
 	[RequireComponent (typeof(BoxCollider2D))]
 	public class GameItem : MonoBehaviour
 	{
-		public string nome;
-		//private DBItem db;
-		public Quiz quiz;
+		public string Nome;
+		public Quiz Quiz;
 
 		public ItensManager itemManager;
 
@@ -19,22 +18,14 @@ namespace ObjetosJogo
 
 		void Start ()
 		{			
-			itemManager = GameObject.FindGameObjectWithTag ("GM").GetComponent<ItensManager> ();
+			itemManager = FindObjectOfType<ItensManager> ();
+			Nome = this.gameObject.name;
 		}
 
-		void OnMouseDown ()
+		public void MouseDown ()
 		{
-			if (!jaRespondeu) {
-				itemManager.MostraQuiz (this);
-			} else {
-				itemManager.MostraExplicacao (this);
-			}
-		}
-
-		public void Destroy ()
-		{
-			print ("Detruido: " + this.name);
-			Destroy (this);
+			print ("cliquei em:" + Nome);
+			itemManager.MostrarPanel (this);
 		}
 	}
 }

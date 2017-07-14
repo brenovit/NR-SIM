@@ -20,7 +20,7 @@ public class GerenciadorEvento : MonoBehaviour
 		instancia = null;
 	}
 
-	public static void CarregarEvento (string nome, UnityAction<GameObject, string> evento)
+	public static void CriarEvento (string nome, UnityAction<GameObject, string> evento)
 	{
 		if (instancia == null) {
 			instancia = FindObjectOfType (typeof(GerenciadorEvento)) as GerenciadorEvento;

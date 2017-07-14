@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
 	public void CarregarCena (string cena)
 	{
-		//CriarDados ();
+		CriarDados ();
 		PlayerPrefs.DeleteAll ();
 		SceneManager.LoadScene (cena);
 	}
@@ -26,3 +26,4 @@ public class MainMenuManager : MonoBehaviour
 		dataManager.CriarArquivoDefault ();
 	}
 }
+

@@ -19,8 +19,7 @@ public class DataManager : MonoBehaviour
 	//verificar se ja foi alterado
 	// Use this for initialization
 
-	void Awake ()
-	{	
+	void Awake (){	
 		Saver.Initialize (FormatType.XML);
 	}
 
@@ -59,7 +58,6 @@ public class DataManager : MonoBehaviour
 	public void SalvarListaGameItem(string sceneFileName,List<GameItem> lista){
 		Saver.Save (lista, sceneFileName);
 	}
-
 
 	/// <summary>
 	/// Deleta um arquivo fisico

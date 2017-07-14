@@ -9,60 +9,46 @@ using System;
 using UnityEngine.SceneManagement;
 using SaveGameFree;
 
-[System.Serializable]
-public class GameObjectQuiz
-{
-	public GameObject painel;
-	public Text pergunta;
-	public Image imagem;
-	public bool resposta;
-	public Quiz quiz;
-}
-
-[System.Serializable]
-public class GameObjectPergunta
-{
-	public GameObject painel;
-	public Text titulo;
-	public Text explicacao;
-}
-
 public class ItensManager : MonoBehaviour
 {
 	private string nomeCena;
-	private List<Quiz> listaQuiz;
 	public DataManager dataManager;
 
-	private GameObject[] itensCena;
+	public List<GameItem> itensCena;
 
-	public GameItemCheckList[] itemCheckList;
+	public List<GameItemCheckList> itensCheckList;
 
-	public GameObjectQuiz gOQuiz;
-
-	public GameObjectPergunta gOPergunta;
-
-	public Sprite[] imagens;
-
-	private GameItem gameItem;
-
+	//private GameItem gameItem;
+	private List<GameItem> listaGameItem;
+	public UIManager uimanager;
 	void Start ()
 	{
+		Saver.Initialize (FormatType.XML);
+		
 		nomeCena = SceneManager.GetActiveScene ().name;
-		listaQuiz = DefaultData.ObjetosDefault ();//dataManager.CarregarLista (nomeCena);			//carrego a lista de itens deste cenario
-		itensCena = GameObject.FindGameObjectsWithTag ("Item");			//pego todos os gameobject com a tag Item
+		List<Quiz> listaQuiz = DefaultData.ObjetosDefault ();
+		itensCena = FindObjectsOfType<GameItem> ().ToList ();
+		uimanager = FindObjectOfType<UIManager>();
+		itensCheckList = Resources.FindObjectsOfTypeAll<GameItemCheckList> ().ToList();
+		listaGameItem = dataManager.CarregarListaGameItem(nomeCena);
 
-		if (listaQuiz.Count() <= 0) {
-			//lista ta vazia
-		} else {
-			foreach (var item in itensCena) {
-				GameItem gameItem = item.GetComponent<GameItem> ();
-				//gameItem.quiz = 
+		if (listaGameItem == null || listaGameItem.Count == 0) {
+			foreach (GameItem item in itensCena) {
+				item.Quiz = listaQuiz.Where (x => x.Item.Nome == item.Nome).FirstOrDefault ();
+			}
+		} else {			
+			foreach (GameItem item in itensCena) {
+				GameItem gi = listaGameItem.Where (x => x.Nome == item.Nome).FirstOrDefault ();
+				item.Quiz = gi.Quiz;
+				item.jaRespondeu = gi.jaRespondeu;
 			}
 		}
 
-		//dbQuiz = GameObject.FindGameObjectWithTag ("SQL").GetComponent<DBQuiz> (); 					//instancio o objeto dbquiz
-
-		//
+//		int i = 0;
+//		foreach (var item in itemCheckList) {
+//			item.EnviarQuiz (itensCena [i]);
+//			i++;
+//		}
 
 		//int x = 0;
 
@@ -84,47 +70,11 @@ public class ItensManager : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Responder the specified resposta. Evento do Click
-	/// </summary>
-	/// <param name="resposta">If set to <c>true</c> resposta.</param>
-	public void Responder (bool resposta)
-	{
-		//GameManager.AdicionarPontos (resposta == gOQuiz.quiz.Resposta ? 200 : 0);
-		gameItem.jaRespondeu = true;
-		UiBlock.Desativar ();
-		gOQuiz.painel.SetActive (false);
-	}
-
-	/// <summary>
 	/// Mostras the quiz. Evento de Click
 	/// </summary>
 	/// <param name="quiz">Quiz.</param>
-	public void MostraQuiz (GameItem gameItem)
+	public void MostrarPanel (GameItem gameItem)
 	{
-		this.gameItem = gameItem;
-		gOQuiz.quiz = gameItem.quiz;
-		gOQuiz.pergunta.text = gameItem.quiz.Pergunta.Descricao;
-		gOQuiz.resposta = gameItem.quiz.Resposta;
-
-		//busca no vetor de imagens a imagem que tem o mesmo nome que o objeto quiz retornado do banco
-		//se tiver ele atribui a imagem do quiz(canvas) a imagem do vetor;
-		for (int i = 0; i < imagens.Count (); i++) {
-			if (imagens [i].name == gameItem.quiz.Imagem) {
-				gOQuiz.imagem.sprite = imagens [i];
-				break;
-			}
-		}
-		gOQuiz.painel.SetActive (true);
-	}
-
-	/// <summary>
-	/// Mostras the explicacao. Evento de Clicks
-	/// </summary>
-	/// <param name="quiz">Quiz.</param>
-	public void MostraExplicacao (GameItem gameItem)
-	{
-		gOPergunta.titulo.text = gameItem.quiz.Pergunta.NBR + " " + gameItem.quiz.Pergunta.Titulo;
-		gOPergunta.explicacao.text = gameItem.quiz.Pergunta.Explicacao;
-		gOPergunta.painel.SetActive (true);
+		uimanager.MostrarPainel (gameItem);
 	}
 }

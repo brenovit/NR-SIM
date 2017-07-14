@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Script\Comum\ItensManager.cs">
     <Files>
-      <File FileName="Assets\_Script\Jogador\MovePlayer.cs" Line="27" Column="32" />
-      <File FileName="Assets\_Script\Comum\ItensManager.cs" Line="59" Column="7" />
-      <File FileName="Assets\_Script\Comum\GameManager.cs" Line="8" Column="2" />
-      <File FileName="Assets\_Script\ObjetosJogo\GameItem.cs" Line="16" Column="9" />
-      <File FileName="Assets\_Script\Persistencia\DataManager.cs" Line="59" Column="33" />
+      <File FileName="Assets\_Script\Comum\ItensManager.cs" Line="33" Column="25" />
+      <File FileName="Assets\_Script\Comum\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Script\UI\UIManager.cs" Line="53" Column="2" />
+      <File FileName="Assets\_Script\ObjetosJogo\GameItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\SaveGameFree\Serializers\SaveGameFreeXmlSerializer.cs" Line="27" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

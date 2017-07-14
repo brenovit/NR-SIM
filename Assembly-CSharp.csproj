@@ -72,6 +72,7 @@
      <Compile Include="Assets\_Script\EsconderPanel.cs" />
      <Compile Include="Assets\_Script\Jogador\MovePlayer.cs" />
      <Compile Include="Assets\_Script\Jogador\WalkerPlayer.cs" />
+     <Compile Include="Assets\_Script\ListItemChecklist.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GameItem.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GameItemCheckList.cs" />
      <Compile Include="Assets\_Script\ObjetosJogo\GamePergunta.cs" />
