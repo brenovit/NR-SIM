@@ -11,7 +11,6 @@ namespace ObjetosJogo
 	{
 		public string Nome;
 		public Quiz Quiz;
-
 		public ItensManager itemManager;
 
 		public bool jaRespondeu = false;
@@ -26,6 +25,20 @@ namespace ObjetosJogo
 		{
 			print ("cliquei em:" + Nome);
 			itemManager.MostrarPanel (this);
+		}
+
+		public GameItemReflex ParseToReflex(){
+			GameItemReflex gameIR = new GameItemReflex ();
+			gameIR.Nome = this.Nome;
+			gameIR.Quiz = this.Quiz;
+			gameIR.jaRespondeu = this.jaRespondeu;
+			return gameIR;
+		}
+
+		public void GetFromReflex(GameItemReflex gameIR){
+			this.Nome = gameIR.Nome;
+			this.Quiz = gameIR.Quiz;
+			this.jaRespondeu = gameIR.jaRespondeu;
 		}
 	}
 }

@@ -18,7 +18,6 @@ public class ItensManager : MonoBehaviour
 
 	public List<GameItemCheckList> itensCheckList;
 
-	private List<GameItem> listaGameItem;
 	public UIManager uimanager;
 
 	void OnEnable(){
@@ -39,7 +38,8 @@ public class ItensManager : MonoBehaviour
 		itensCena = FindObjectsOfType<GameItem> ().ToList ();
 		uimanager = FindObjectOfType<UIManager>();
 		itensCheckList = uimanager.listaGameItemCheclist.lista;
-		listaGameItem = dataManager.CarregarListaGameItem(nomeCena);
+
+		List<GameItemReflex> listaGameItem = dataManager.CarregarListaGameItemReflex(nomeCena);
 
 		if (listaGameItem == null || listaGameItem.Count == 0) {
 			foreach (GameItem item in itensCena) {
@@ -47,16 +47,12 @@ public class ItensManager : MonoBehaviour
 			}
 		} else {			
 			foreach (GameItem item in itensCena) {
-				GameItem gi = listaGameItem.Where (x => x.Nome == item.Nome).FirstOrDefault ();
-				item.Quiz = gi.Quiz;
-				item.jaRespondeu = gi.jaRespondeu;
+				item.GetFromReflex(listaGameItem.Where (x => x.Nome == item.Nome).FirstOrDefault ());
 			}
 		}
 
-		int i = 0;
-		foreach (var item in itensCheckList) {
-			item.EnviarQuiz (itensCena [i]);
-			i++;
+		for (int i = 0; i < itensCena.Count; i++) {
+			itensCheckList[i].EnviarQuiz (itensCena [i]);
 		}
 
 		//int x = 0;
@@ -88,6 +84,11 @@ public class ItensManager : MonoBehaviour
 	}
 
 	public void SalvarLista(GameObject obj, string param){
-		Saver.Save (itensCheckList, nomeCena);
+		List<GameItemReflex> listaGameItemReflex = new List<GameItemReflex> ();
+		foreach (GameItem item in itensCena) {
+			listaGameItemReflex.Add (item.ParseToReflex ());
+		}
+		listaGameItemReflex.Add (new GameItemReflex ("vazio",new Quiz(), false));
+		dataManager.SalvarListaGameItemReflex (nomeCena, listaGameItemReflex);
 	}
 }

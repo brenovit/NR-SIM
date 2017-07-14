@@ -6,14 +6,15 @@ using UnityEngine;
 using SaveGameFree.Serializers;
 using ObjetoTransacional;
 using System;
+using ObjetosJogo;
 
 namespace SaveGameFree
 {
 	public class Demo : MonoBehaviour
 	{
 		public DemoData demoData;
-		public string fileName = "gameData";
-		List<Quiz> lista = null;
+		public string fileName = "aksjdhaisun";
+		List<GameItem> lista = null;
 		/// <summary>
 		/// Use awake function to initialize our game save and load.
 		/// </summary>
@@ -24,14 +25,14 @@ namespace SaveGameFree
 
 			// Initialize our game data
 			demoData = new DemoData ();
-			lista = new List<Quiz> ();
+			lista = new List<GameItem> ();
 
 			// Initialize the Saver with the default configurations
 			Saver.Initialize (FormatType.XML);
 
 			// Load game data after initialization
 			//demoData = Saver.Load<DemoData> (fileName);
-			lista = Saver.Load<List<Quiz>> (fileName);
+			lista = Saver.Load<List<GameItem>> (fileName);
 			print ("Carreguei a lista:" + lista.Count ());
 		}
 
@@ -61,7 +62,7 @@ namespace SaveGameFree
 			}
 			if (GUILayout.Button ("Load")) {
 				// Load the game data
-				lista = Saver.Load<List<Quiz>> (fileName);
+				lista = Saver.Load<List<GameItem>> (fileName);
 				print ("Carreguei a lista:" + lista.Count ());
 			}
 			if (GUILayout.Button ("Reload")) {

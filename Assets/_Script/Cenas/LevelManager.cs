@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
 	{	
 		if (!PlayerPrefs.HasKey ("pontos")) {
 			PlayerPrefs.SetInt ("pontos", pontos);
-			pontos = 200;
+			pontos = 0;
 		} else {
 			pontos = PlayerPrefs.GetInt ("pontos");
 		}

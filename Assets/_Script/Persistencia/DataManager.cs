@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using SaveGameFree;
 using ObjetoTransacional;
-using NUnit.Framework;
 using ObjetosJogo;
 
 public class DataManager : MonoBehaviour
@@ -31,8 +30,8 @@ public class DataManager : MonoBehaviour
 		SalvarListaQuiz (fileName, DefaultData.ObjetosDefault());
 	}
 
-	public List<GameItem> CarregarListaGameItem(string sceneFileName){
-		List<GameItem> lista = Saver.Load<List<GameItem>> (sceneFileName);
+	public List<GameItemReflex> CarregarListaGameItemReflex(string sceneFileName){
+		List<GameItemReflex> lista = Saver.Load<List<GameItemReflex>> (sceneFileName);
 		return lista;
 	}
 
@@ -55,7 +54,8 @@ public class DataManager : MonoBehaviour
 		Saver.Save (lista, sceneFileName);
 	}
 
-	public void SalvarListaGameItem(string sceneFileName,List<GameItem> lista){
+	public void SalvarListaGameItemReflex(string sceneFileName,List<GameItemReflex> lista){
+		DeletarArquivo (sceneFileName);
 		Saver.Save (lista, sceneFileName);
 	}
 
