@@ -18,9 +18,18 @@ public class ItensManager : MonoBehaviour
 
 	public List<GameItemCheckList> itensCheckList;
 
-	//private GameItem gameItem;
 	private List<GameItem> listaGameItem;
 	public UIManager uimanager;
+
+	void OnEnable(){
+		GerenciadorEvento.CriarEvento ("SalvarLista",SalvarLista);
+	}
+
+	void OnDisable(){
+		GerenciadorEvento.RemoverEvento ("SalvarLista", SalvarLista);
+	}
+
+
 	void Start ()
 	{
 		Saver.Initialize (FormatType.XML);
@@ -29,7 +38,7 @@ public class ItensManager : MonoBehaviour
 		List<Quiz> listaQuiz = DefaultData.ObjetosDefault ();
 		itensCena = FindObjectsOfType<GameItem> ().ToList ();
 		uimanager = FindObjectOfType<UIManager>();
-		itensCheckList = Resources.FindObjectsOfTypeAll<GameItemCheckList> ().ToList();
+		itensCheckList = uimanager.listaGameItemCheclist.lista;
 		listaGameItem = dataManager.CarregarListaGameItem(nomeCena);
 
 		if (listaGameItem == null || listaGameItem.Count == 0) {
@@ -44,11 +53,11 @@ public class ItensManager : MonoBehaviour
 			}
 		}
 
-//		int i = 0;
-//		foreach (var item in itemCheckList) {
-//			item.EnviarQuiz (itensCena [i]);
-//			i++;
-//		}
+		int i = 0;
+		foreach (var item in itensCheckList) {
+			item.EnviarQuiz (itensCena [i]);
+			i++;
+		}
 
 		//int x = 0;
 
@@ -76,5 +85,9 @@ public class ItensManager : MonoBehaviour
 	public void MostrarPanel (GameItem gameItem)
 	{
 		uimanager.MostrarPainel (gameItem);
+	}
+
+	public void SalvarLista(GameObject obj, string param){
+		Saver.Save (itensCheckList, nomeCena);
 	}
 }

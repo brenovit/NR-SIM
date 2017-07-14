@@ -247,6 +247,7 @@ public class UIManager : MonoBehaviour
 		} else {
 			//mostra obj norma fracasso
 		}
+		GerenciadorEvento.ExecutarEvento ("SalvarLista", null, "");
 		panelQuiz.SetActive (false);
 		localGameItem.jaRespondeu = true;
 		localGameItem = null;
