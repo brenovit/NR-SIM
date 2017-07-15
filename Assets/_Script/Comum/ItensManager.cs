@@ -19,6 +19,7 @@ public class ItensManager : MonoBehaviour
 	public List<GameItemCheckList> itensCheckList;
 
 	public UIManager uimanager;
+	public int totalPontos;
 
 	void OnEnable(){
 		GerenciadorEvento.CriarEvento ("SalvarLista",SalvarLista);
@@ -28,9 +29,9 @@ public class ItensManager : MonoBehaviour
 		GerenciadorEvento.RemoverEvento ("SalvarLista", SalvarLista);
 	}
 
-
 	void Start ()
 	{
+		Time.timeScale = 1;
 		Saver.Initialize (FormatType.XML);
 		
 		nomeCena = SceneManager.GetActiveScene ().name;
@@ -41,9 +42,12 @@ public class ItensManager : MonoBehaviour
 
 		List<GameItemReflex> listaGameItem = dataManager.CarregarListaGameItemReflex(nomeCena);
 
+		totalPontos = itensCena.Count * uimanager.pontosAcerto;
+		uimanager.totalItens = 9;
+
 		if (listaGameItem == null || listaGameItem.Count == 0) {
 			foreach (GameItem item in itensCena) {
-				item.Quiz = listaQuiz.Where (x => x.Item.Nome == item.Nome).FirstOrDefault ();
+				item.Quiz = listaQuiz.Where (x => x.Item.Nome == item.Nome).First ();
 			}
 		} else {			
 			foreach (GameItem item in itensCena) {
@@ -74,6 +78,12 @@ public class ItensManager : MonoBehaviour
 		}*/
 	}
 
+	public void Update(){
+		if (uimanager.GetPontos () == totalPontos) {
+			GerenciadorEvento.ExecutarEvento ("GameWon",null,""); 
+		}
+	}
+
 	/// <summary>
 	/// Mostras the quiz. Evento de Click
 	/// </summary>
@@ -88,7 +98,5 @@ public class ItensManager : MonoBehaviour
 		foreach (GameItem item in itensCena) {
 			listaGameItemReflex.Add (item.ParseToReflex ());
 		}
-		listaGameItemReflex.Add (new GameItemReflex ("vazio",new Quiz(), false));
-		dataManager.SalvarListaGameItemReflex (nomeCena, listaGameItemReflex);
 	}
 }

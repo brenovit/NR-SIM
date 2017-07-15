@@ -23,7 +23,6 @@ namespace ObjetosJogo
 
 		public void MouseDown ()
 		{
-			print ("cliquei em:" + Nome);
 			itemManager.MostrarPanel (this);
 		}
 

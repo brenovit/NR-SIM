@@ -55,6 +55,10 @@ public class UIManager : MonoBehaviour
 	public int pontosAcerto;
 	public ListItemChecklist listaGameItemCheclist;
 
+	private int pontos;
+	private int itensRespondidos;
+	public int totalItens;
+
 	void OnEnable(){
 		GerenciadorEvento.CriarEvento ("BotaoPressionado",BotaoPressionado); 
 		GerenciadorEvento.CriarEvento ("GameOver",GameOver); 
@@ -72,7 +76,6 @@ public class UIManager : MonoBehaviour
 		if (PlayerPrefs.HasKey ("minutos")) {			
 			minutos = PlayerPrefs.GetInt ("minutos");
 		} else {
-			print ("não tenho minuto");
 			PlayerPrefs.SetInt ("minutos", minutos);
 		}
 
@@ -80,6 +83,17 @@ public class UIManager : MonoBehaviour
 			segundos = PlayerPrefs.GetInt ("segundos");
 		} else {
 			PlayerPrefs.SetInt ("segundos", segundos);
+		}
+
+		if (PlayerPrefs.HasKey ("pontos")) {
+			pontos = PlayerPrefs.GetInt ("pontos");
+		} else {
+			PlayerPrefs.SetInt ("pontos", pontos);
+		}
+		if (PlayerPrefs.HasKey ("itensRespondidos")) {
+			itensRespondidos = PlayerPrefs.GetInt ("itensRespondidos");
+		} else {
+			PlayerPrefs.SetInt ("itensRespondidos", itensRespondidos);
 		}
 	}
 
@@ -89,7 +103,8 @@ public class UIManager : MonoBehaviour
 			//panelFimJogo.SetActive (true);
 			minutos = 0;
 			segundos = 0;
-			//Time.timeScale = 0;
+			Time.timeScale = 0;
+			panelGameOver.SetActive (true);
 			//UiBlock.Ativar ();
 		} else {
 			tempSeg = tempSeg - Time.deltaTime;		//tempSeg decrementa de acordo com o Delta.Time(~1)
@@ -114,6 +129,7 @@ public class UIManager : MonoBehaviour
 
 	public void SetPontos (int valor)
 	{
+		pontos = valor;
 		lblPontos.text = valor.ToString ("0000");
 	}
 
@@ -251,6 +267,16 @@ public class UIManager : MonoBehaviour
 		panelQuiz.SetActive (false);
 		localGameItem.jaRespondeu = true;
 		localGameItem = null;
+		ItemRespondido ();
+	}
+
+	private void ItemRespondido(){
+		itensRespondidos++;
+		PlayerPrefs.SetInt ("itensRespondidos", itensRespondidos);
+		if (itensRespondidos == totalItens) {
+			GerenciadorEvento.ExecutarEvento ("GameWon",null,""); 
+		}
+		print (itensRespondidos+"/"+totalItens);
 	}
 
 	public void MostrarPainel(GameItem gameItem){
